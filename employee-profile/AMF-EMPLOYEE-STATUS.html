@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Profile | Awesome Media Films</title>
+
+    <style>
+
+        /* =====================================================
+           LUXURY THEME
+           COLORS:
+           #eeeeec = luxury grey
+           #ffffff = white
+           #111111 = black
+           #333333 = charcoal
+           #999999 = silver
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #eeeeec;
+            color: #111111;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =====================================================
+           SCROLLBAR
+        ===================================================== */
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e5e5e2;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            z-index: 999;
+
+            padding: 22px 5%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(238,238,236,0.88);
+            backdrop-filter: blur(20px);
+
+            border-bottom: 1px solid rgba(0,0,0,0.10);
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            font-weight: 400;
+            color: #777;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            background: #111;
+            border-radius: 50%;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            padding: 150px 7% 80px;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 75% 30%,
+                    rgba(255,255,255,0.95),
+                    transparent 32%
+                ),
+                linear-gradient(
+                    135deg,
+                    #eeeeec 0%,
+                    #d4d4d1 45%,
+                    #f5f5f3 100%
+                );
+        }
+
+        /* Giant background number */
+
+        .giant-id {
+            position: absolute;
+
+            right: -40px;
+            bottom: -90px;
+
+            font-size: clamp(200px, 30vw, 500px);
+
+            font-weight: 900;
+
+            line-height: 0.8;
+
+            color: rgba(0,0,0,0.045);
+
+            user-select: none;
+        }
+
+        /* Decorative circle */
+
+        .hero-circle {
+            position: absolute;
+
+            width: 550px;
+            height: 550px;
+
+            right: 5%;
+            top: 20%;
+
+            border: 1px solid rgba(0,0,0,0.08);
+
+            border-radius: 50%;
+        }
+
+        .hero-circle::after {
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+            height: 400px;
+
+            left: 75px;
+            top: 75px;
+
+            border: 1px solid rgba(0,0,0,0.06);
+
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 10px 15px;
+
+            border: 1px solid rgba(0,0,0,0.18);
+
+            background: rgba(255,255,255,0.45);
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 28px;
+        }
+
+        .eyebrow span {
+            width: 6px;
+            height: 6px;
+
+            background: #111;
+
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 125px);
+
+            line-height: 0.82;
+
+            letter-spacing: -7px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 35px;
+        }
+
+        .hero h1 span {
+            color: #666;
+        }
+
+        .hero-text {
+            max-width: 600px;
+
+            color: #555;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 24px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #111;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            transition: 0.3s;
+        }
+
+        .btn-black {
+            background: #111;
+            color: white;
+        }
+
+        .btn-black:hover {
+            background: #333;
+            transform: translateY(-3px);
+        }
+
+        .btn-white {
+            background: rgba(255,255,255,0.45);
+            color: #111;
+
+            border-color: rgba(0,0,0,0.25);
+        }
+
+        .btn-white:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           ID STRIP
+        ===================================================== */
+
+        .id-strip {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            background: #111;
+
+            color: white;
+        }
+
+        .id-box {
+            padding: 25px 30px;
+
+            border-right: 1px solid #333;
+        }
+
+        .id-box:last-child {
+            border-right: none;
+        }
+
+        .id-label {
+            display: block;
+
+            color: #888;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .id-value {
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+        .active {
+            color: #fff;
+        }
+
+
+        /* =====================================================
+           GENERAL
+        ===================================================== */
+
+        .container {
+            width: min(1350px, 90%);
+
+            margin: auto;
+        }
+
+        section {
+            padding: 120px 0;
+        }
+
+        .section-head {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-end;
+
+            gap: 40px;
+
+            margin-bottom: 60px;
+        }
+
+        .section-number {
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            color: #888;
+
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(42px, 6vw, 85px);
+
+            line-height: 0.9;
+
+            letter-spacing: -5px;
+
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: #888;
+        }
+
+        .section-description {
+            max-width: 420px;
+
+            color: #666;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           PROFILE SECTION
+        ===================================================== */
+
+        .profile-grid {
+            display: grid;
+
+            grid-template-columns: 0.8fr 1.2fr;
+
+            gap: 50px;
+        }
+
+        .profile-photo {
+            min-height: 680px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.55),
+                    transparent 45%
+                ),
+                url("employee-photo.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            border: 1px solid rgba(0,0,0,0.15);
+
+            box-shadow:
+                20px 20px 0 rgba(0,0,0,0.07);
+        }
+
+        .photo-number {
+            position: absolute;
+
+            top: 25px;
+            left: 25px;
+
+            padding: 10px 15px;
+
+            background: rgba(255,255,255,0.88);
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+        }
+
+        .photo-bottom {
+            position: absolute;
+
+            bottom: 25px;
+            left: 25px;
+
+            color: white;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .profile-info {
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+        .profile-name {
+            font-size: clamp(45px, 6vw, 80px);
+
+            line-height: 0.9;
+
+            letter-spacing: -5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .profile-role {
+            color: #777;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* =====================================================
+           INFORMATION GRID
+        ===================================================== */
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            border-top: 1px solid #ccc;
+
+            border-left: 1px solid #ccc;
+        }
+
+        .info-box {
+            padding: 23px;
+
+            background: rgba(255,255,255,0.52);
+
+            border-right: 1px solid #ccc;
+
+            border-bottom: 1px solid #ccc;
+
+            transition: 0.3s;
+        }
+
+        .info-box:hover {
+            background: white;
+
+            transform: translateY(-2px);
+        }
+
+        .info-label {
+            display: block;
+
+            font-size: 9px;
+
+            color: #888;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 9px;
+        }
+
+        .info-value {
+            font-size: 14px;
+
+            font-weight: 700;
+
+            color: #222;
+        }
+
+
+        /* =====================================================
+           DARK LUXURY PANEL
+        ===================================================== */
+
+        .luxury-panel {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 70px;
+
+            background:
+                radial-gradient(
+                    circle at 90% 10%,
+                    #444,
+                    transparent 30%
+                ),
+                #111;
+
+            color: white;
+        }
+
+        .luxury-panel::after {
+            content: "AMF";
+
+            position: absolute;
+
+            right: 30px;
+
+            bottom: -70px;
+
+            font-size: 280px;
+
+            font-weight: 900;
+
+            color: rgba(255,255,255,0.025);
+        }
+
+        .large-statement {
+            position: relative;
+            z-index: 2;
+
+            max-width: 1050px;
+
+            font-size: clamp(30px, 5vw, 68px);
+
+            line-height: 1.08;
+
+            letter-spacing: -3px;
+        }
+
+        .large-statement span {
+            color: #777;
+        }
+
+
+        /* =====================================================
+           RESPONSIBILITIES
+        ===================================================== */
+
+        .responsibility-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            border-top: 1px solid #c9c9c7;
+
+            border-left: 1px solid #c9c9c7;
+        }
+
+        .responsibility {
+            min-height: 210px;
+
+            padding: 32px;
+
+            background: rgba(255,255,255,0.42);
+
+            border-right: 1px solid #c9c9c7;
+
+            border-bottom: 1px solid #c9c9c7;
+
+            transition: 0.35s;
+        }
+
+        .responsibility:hover {
+            background: white;
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .resp-number {
+            color: #999;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 40px;
+        }
+
+        .responsibility h3 {
+            font-size: 21px;
+
+            margin-bottom: 10px;
+        }
+
+        .responsibility p {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            max-width: 430px;
+        }
+
+
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
+        .skills {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+        }
+
+        .skill {
+            padding: 14px 20px;
+
+            background: white;
+
+            border: 1px solid #ccc;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: #111;
+
+            color: white;
+
+            border-color: #111;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           PROJECT
+        ===================================================== */
+
+        .project {
+            display: grid;
+
+            grid-template-columns: 1.2fr 0.8fr;
+
+            background: #111;
+
+            color: white;
+        }
+
+        .project-image {
+            min-height: 500px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(0,0,0,0.25)
+                ),
+                url("https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+        .project-content {
+            padding: 55px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+        .project-label {
+            color: #777;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 20px;
+        }
+
+        .project-content h3 {
+            font-size: 45px;
+
+            line-height: 0.95;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 20px;
+        }
+
+        .project-content p {
+            color: #999;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           VERIFICATION
+        ===================================================== */
+
+        .verification-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .verification-card {
+            padding: 45px;
+
+            background: white;
+
+            border: 1px solid #d0d0ce;
+
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .verification-icon {
+            width: 55px;
+            height: 55px;
+
+            display: grid;
+
+            place-items: center;
+
+            background: #111;
+
+            color: white;
+
+            margin-bottom: 30px;
+
+            font-weight: 900;
+        }
+
+        .verification-card h3 {
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+        .verification-card p {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+        .verified {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 10px 15px;
+
+            background: #111;
+
+            color: white;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact {
+            padding: 150px 20px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #151515,
+                    #333
+                );
+
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: clamp(55px, 10vw, 140px);
+
+            line-height: 0.8;
+
+            letter-spacing: -7px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 35px;
+        }
+
+        .contact p {
+            color: #aaa;
+
+            margin-bottom: 35px;
+        }
+
+        .contact-buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+        }
+
+        .contact .btn-white {
+            background: white;
+
+            color: #111;
+
+            border-color: white;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #eeeeec;
+
+            padding: 70px 5% 30px;
+
+            border-top: 1px solid #ccc;
+        }
+
+        .footer-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 40px;
+
+            padding-bottom: 60px;
+
+            border-bottom: 1px solid #ccc;
+        }
+
+        .footer-logo {
+            font-size: 25px;
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+        }
+
+        .footer-description {
+            max-width: 400px;
+
+            margin-top: 20px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+        .footer-right {
+            color: #666;
+
+            font-size: 12px;
+
+            line-height: 2;
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #888;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================================
+           ANIMATION
+        ===================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(40px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 900px) {
+
+            .profile-grid,
+            .project {
+                grid-template-columns: 1fr;
+            }
+
+            .verification-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .id-strip {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .responsibility-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-head {
+                display: block;
+            }
+
+            .section-description {
+                margin-top: 25px;
+            }
+
+            .project-image {
+                min-height: 380px;
+            }
+        }
+
+
+        @media(max-width: 600px) {
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 13px;
+            }
+
+            .nav-right {
+                font-size: 8px;
+            }
+
+            .hero {
+                padding: 130px 6% 70px;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .hero-circle {
+                width: 350px;
+                height: 350px;
+                right: -100px;
+            }
+
+            .id-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .id-box {
+                border-right: none;
+
+                border-bottom: 1px solid #333;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .profile-photo {
+                min-height: 450px;
+
+                box-shadow:
+                    12px 12px 0 rgba(0,0,0,0.06);
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .luxury-panel {
+                padding: 35px 25px;
+            }
+
+            .large-statement {
+                letter-spacing: -1px;
+            }
+
+            .project-content {
+                padding: 35px 25px;
+            }
+
+            .verification-card {
+                padding: 30px;
+            }
+
+            .contact {
+                padding: 100px 20px;
+            }
+
+            .contact h2 {
+                letter-spacing: -4px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        AWESOME <span>MEDIA FILMS</span>
+    </div>
+
+    <div class="nav-right">
+        <span class="live-dot"></span>
+        Official Employee Profile
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero">
+
+    <div class="giant-id">
+        012
+    </div>
+
+    <div class="hero-circle"></div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span></span>
+            Employee / Intern Profile
+        </div>
+
+        <h1>
+            Meet
+            <span>Our Talent.</span>
+        </h1>
+
+        <p class="hero-text">
+            An official professional profile of a creative
+            team member associated with Awesome Media Films.
+            Explore their role, responsibilities, experience,
+            skills and professional journey with us.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#profile" class="btn btn-black">
+                View Profile
+            </a>
+
+            <a href="tel:9821186616" class="btn btn-white">
+                Contact Company
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     EMPLOYEE ID BAR
+========================================================= -->
+
+<div class="id-strip">
+
+    <div class="id-box">
+
+        <span class="id-label">
+            Employee ID
+        </span>
+
+        <span class="id-value">
+            AMF-00012
+        </span>
+
+    </div>
+
+
+    <div class="id-box">
+
+        <span class="id-label">
+            Current Status
+        </span>
+
+        <span class="id-value active">
+            ● ACTIVE
+        </span>
+
+    </div>
+
+
+    <div class="id-box">
+
+        <span class="id-label">
+            Employment
+        </span>
+
+        <span class="id-value">
+            INTERN
+        </span>
+
+    </div>
+
+
+    <div class="id-box">
+
+        <span class="id-label">
+            Company
+        </span>
+
+        <span class="id-value">
+            AWESOME MEDIA FILMS
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     PROFILE
+========================================================= -->
+
+<section id="profile">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="section-number">
+                    01 / PROFILE
+                </div>
+
+                <h2 class="section-title">
+                    Employee
+                    <span>Details.</span>
+                </h2>
+
+            </div>
+
+            <p class="section-description">
+                Complete professional information of the
+                employee / intern associated with
+                Awesome Media Films.
+            </p>
+
+        </div>
+
+
+        <div class="profile-grid reveal">
+
+
+            <!-- PHOTO -->
+
+            <div class="profile-photo">
+
+                <div class="photo-number">
+                    AMF / 00012
+                </div>
+
+                <div class="photo-bottom">
+                    Official Profile Photograph
+                </div>
+
+            </div>
+
+
+            <!-- INFORMATION -->
+
+            <div class="profile-info">
+
+                <h2 class="profile-name">
+                    ANIRUDH<br>YADAV
+                </h2>
+
+                <div class="profile-role">
+                    Video Editing Intern / Creative Department
+                </div>
+
+
+                <div class="info-grid">
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Full Name
+                        </span>
+
+                        <span class="info-value">
+                            ANIRUDH YADAV
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Employee ID
+                        </span>
+
+                        <span class="info-value">
+                            AMF-00012
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Age
+                        </span>
+
+                        <span class="info-value">
+                            23 Years
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Phone
+                        </span>
+
+                        <span class="info-value">
+                            +91 9760107648
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Email
+                        </span>
+
+                        <span class="info-value">
+                           nill
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Job Role
+                        </span>
+
+                        <span class="info-value">
+                            Video Editing/ Graphic Designer Intern
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Department
+                        </span>
+
+                        <span class="info-value">
+                            Creative / Post Production
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Employment Type
+                        </span>
+
+                        <span class="info-value">
+                            Internship
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Joining Date
+                        </span>
+
+                        <span class="info-value">
+                            01 September 2026
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Duration
+                        </span>
+
+                        <span class="info-value">
+                            6 Months
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            End Date
+                        </span>
+
+                        <span class="info-value">
+                            28 February 2027
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Monthly Stipend
+                        </span>
+
+                        <span class="info-value">
+                            ₹12,500 / Month
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Working Hours
+                        </span>
+
+                        <span class="info-value">
+                            Flexible
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Work Mode
+                        </span>
+
+                        <span class="info-value">
+                            Hybrid
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Reporting Manager
+                        </span>
+
+                        <span class="info-value">
+                            Creative Director
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span class="info-label">
+                            Location
+                        </span>
+
+                        <span class="info-value">
+                            Delhi NCR
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROFESSIONAL SUMMARY
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="section-number">
+                    02 / SUMMARY
+                </div>
+
+                <h2 class="section-title">
+                    Professional
+                    <span>Overview.</span>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="luxury-panel reveal">
+
+            <p class="large-statement">
+
+                A creative professional working with
+                <span>Awesome Media Films</span>,
+                contributing to video production,
+                post-production, digital content and
+                visual storytelling projects.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RESPONSIBILITIES
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="section-number">
+                    03 / RESPONSIBILITIES
+                </div>
+
+                <h2 class="section-title">
+                    What They
+                    <span>Do.</span>
+                </h2>
+
+            </div>
+
+            <p class="section-description">
+                Primary responsibilities assigned to the
+                employee during their professional association
+                with the company.
+            </p>
+
+        </div>
+
+
+        <div class="responsibility-grid reveal">
+
+
+            <div class="responsibility">
+
+                <div class="resp-number">
+                    01 / 04
+                </div>
+
+                <h3>
+                    Video Editing
+                </h3>
+
+                <p>
+                    Editing raw footage into polished,
+                    engaging and platform-ready video content.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility">
+
+                <div class="resp-number">
+                    02 / 04
+                </div>
+
+                <h3>
+                    Content Creation
+                </h3>
+
+                <p>
+                    Supporting creative teams with digital
+                    content, social media videos and creative
+                    concepts.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility">
+
+                <div class="resp-number">
+                    03 / 04
+                </div>
+
+                <h3>
+                    Post Production
+                </h3>
+
+                <p>
+                    Assisting with transitions, audio,
+                    color correction, exports and final
+                    delivery.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility">
+
+                <div class="resp-number">
+                    04 / 04
+                </div>
+
+                <h3>
+                    Creative Support
+                </h3>
+
+                <p>
+                    Working with senior creatives on ideas,
+                    references, production requirements
+                    and visual concepts.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="section-number">
+                    04 / SKILLS
+                </div>
+
+                <h2 class="section-title">
+                    Creative
+                    <span>Toolkit.</span>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="skills reveal">
+
+            <div class="skill">
+                Video Editing
+            </div>
+
+            <div class="skill">
+                Adobe Premiere Pro
+            </div>
+
+            <div class="skill">
+                After Effects
+            </div>
+
+            <div class="skill">
+                Motion Graphics
+            </div>
+
+            <div class="skill">
+                Color Grading
+            </div>
+
+            <div class="skill">
+                Content Creation
+            </div>
+
+            <div class="skill">
+                Storytelling
+            </div>
+
+            <div class="skill">
+                Social Media Content
+            </div>
+
+            <div class="skill">
+                Basic VFX
+            </div>
+
+            <div class="skill">
+                Photography
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CURRENT PROJECT
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="section-number">
+                    05 / PROJECT
+                </div>
+
+                <h2 class="section-title">
+                    Current
+                    <span>Work.</span>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+            <div class="project-image"></div>
+
+
+            <div class="project-content">
+
+                <div class="project-label">
+                    Assigned Project
+                </div>
+
+                <h3>
+                    Brand Film<br>
+                    Production
+                </h3>
+
+                <p>
+                    Supporting the production and
+                    post-production workflow of a cinematic
+                    brand film, including footage organization,
+                    editing assistance and social media
+                    cut-downs.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COMPANY VERIFICATION
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="section-number">
+                    06 / VERIFICATION
+                </div>
+
+                <h2 class="section-title">
+                    Company
+                    <span>Verification.</span>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="verification-grid reveal">
+
+
+            <div class="verification-card">
+
+                <div class="verification-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Official Association
+                </h3>
+
+                <p>
+                    This profile represents the professional
+                    association of the above-mentioned person
+                    with Awesome Media Films.
+                </p>
+
+                <div class="verified">
+                    Official Company Profile
+                </div>
+
+            </div>
+
+
+            <div class="verification-card">
+
+                <div class="verification-icon">
+                    ID
+                </div>
+
+                <h3>
+                    Employee Identification
+                </h3>
+
+                <p>
+                    Employee ID:
+                    <strong>AMF-00012</strong>
+                    <br><br>
+
+                    Status:
+                    <strong>ACTIVE</strong>
+                    <br><br>
+
+                    Employment Type:
+                    <strong>INTERN</strong>
+                </p>
+
+                <div class="verified">
+                    Profile Verified
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="contact">
+
+    <h2>
+        Need<br>
+        Verification?
+    </h2>
+
+    <p>
+        Contact Awesome Media Films for professional
+        employment verification and company enquiries.
+    </p>
+
+
+    <div class="contact-buttons">
+
+        <a
+            href="tel:9821186616"
+            class="btn btn-white"
+        >
+            Call Company
+        </a>
+
+
+        <a
+            href="https://wa.me/919821186616"
+            target="_blank"
+            class="btn btn-white"
+        >
+            WhatsApp
+        </a>
+
+
+        <button
+            onclick="window.print()"
+            class="btn btn-white"
+        >
+            Print Profile
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div>
+
+            <div class="footer-logo">
+                AWESOME MEDIA FILMS
+            </div>
+
+            <p class="footer-description">
+                Film Production • Video Production •
+                Photography • Editing • VFX • Creative Design
+            </p>
+
+        </div>
+
+
+        <div class="footer-right">
+
+            Official Employee Profile<br>
+
+            Employee ID: AMF-00012<br>
+
+            Contact: +91 98211 86616
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 Awesome Media Films
+        </span>
+
+        <span>
+            EMPLOYEE PROFILE / AMF-00012
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* ---------------------------------------------------------
+       SCROLL REVEAL
+    --------------------------------------------------------- */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+    const observer =
+        new IntersectionObserver(
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(function(element) {
+
+        observer.observe(element);
+
+    });
+
+
+    /* ---------------------------------------------------------
+       NAVBAR SCROLL EFFECT
+    --------------------------------------------------------- */
+
+    const navbar =
+        document.querySelector(".navbar");
+
+
+    window.addEventListener("scroll", function() {
+
+        if (window.scrollY > 80) {
+
+            navbar.style.background =
+                "rgba(238,238,236,0.97)";
+
+            navbar.style.boxShadow =
+                "0 10px 30px rgba(0,0,0,0.06)";
+
+        } else {
+
+            navbar.style.background =
+                "rgba(238,238,236,0.88)";
+
+            navbar.style.boxShadow =
+                "none";
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
