@@ -1,0 +1,2168 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- SEO -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Awesome Media Films</title>
+    <meta name="description" content="Explore Awesome Media Films services including video production, film production, photography, video editing, graphic design, branding, motion graphics, VFX and creative advertising.">
+
+    <style>
+        /* =========================================================
+           GLOBAL STYLES
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            padding: 24px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.4s ease;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.85),
+                transparent
+            );
+        }
+
+        .navbar.scrolled {
+            background: rgba(5,5,5,0.96);
+            padding: 16px 5%;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .logo {
+            font-size: 17px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ccc;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-btn {
+            border: 1px solid #fff;
+            padding: 11px 18px;
+            color: #fff !important;
+        }
+
+        .menu-btn {
+            display: none;
+            border: 0;
+            background: none;
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 92vh;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+        }
+
+        .hero-image img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.85),
+                    rgba(0,0,0,0.25),
+                    rgba(0,0,0,0.55)
+                ),
+                linear-gradient(
+                    0deg,
+                    rgba(0,0,0,0.9),
+                    transparent 65%
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 5% 8%;
+            max-width: 1100px;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #aaa;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(65px, 11vw, 160px);
+            line-height: 0.82;
+            letter-spacing: -7px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .hero-text {
+            margin-top: 30px;
+            max-width: 650px;
+            color: #ccc;
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .hero-number {
+            margin-top: 35px;
+            font-family: monospace;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #aaa;
+        }
+
+        /* =========================================================
+           COMMON SECTION
+        ========================================================= */
+
+        .section {
+            padding: 120px 5%;
+        }
+
+        .container {
+            max-width: 1450px;
+            margin: auto;
+        }
+
+        .dark-section {
+            background: #101010;
+        }
+
+        .section-label {
+            color: #777;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(50px, 8vw, 115px);
+            line-height: 0.88;
+            letter-spacing: -5px;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+        }
+
+        .section-description {
+            max-width: 850px;
+            color: #aaa;
+            font-size: 20px;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           SERVICE CATEGORY INTRO
+        ========================================================= */
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: end;
+        }
+
+        .intro-number {
+            font-size: 120px;
+            font-weight: 900;
+            letter-spacing: -8px;
+            color: #222;
+        }
+
+        /* =========================================================
+           SERVICE CARDS
+        ========================================================= */
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 70px;
+        }
+
+        .service-card {
+            position: relative;
+            min-height: 460px;
+            overflow: hidden;
+            background: #151515;
+        }
+
+        .service-card.large {
+            grid-column: span 2;
+        }
+
+        .service-card img {
+            height: 100%;
+            transition: transform 0.8s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .service-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.95),
+                    rgba(0,0,0,0.1) 70%
+                );
+        }
+
+        .service-content {
+            position: absolute;
+            z-index: 3;
+            left: 30px;
+            right: 30px;
+            bottom: 28px;
+        }
+
+        .service-number {
+            color: #999;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .service-content h3 {
+            font-size: 35px;
+            line-height: 1;
+            margin: 8px 0 12px;
+            text-transform: uppercase;
+        }
+
+        .service-content p {
+            color: #bbb;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        .service-link {
+            display: inline-block;
+            margin-top: 18px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        /* =========================================================
+           VIDEO / PHOTO / DESIGN SECTIONS
+        ========================================================= */
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+
+        .category-header p {
+            max-width: 500px;
+            color: #999;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           PROCESS
+        ========================================================= */
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            border-top: 1px solid #292929;
+            border-bottom: 1px solid #292929;
+        }
+
+        .process {
+            padding: 35px 20px;
+            border-right: 1px solid #292929;
+        }
+
+        .process:last-child {
+            border-right: none;
+        }
+
+        .process-number {
+            font-family: monospace;
+            color: #777;
+        }
+
+        .process h3 {
+            margin-top: 70px;
+            font-size: 25px;
+            text-transform: uppercase;
+        }
+
+        .process p {
+            color: #888;
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+            background: #f2f2ee;
+            color: #080808;
+            text-align: center;
+            padding: 150px 5%;
+        }
+
+        .cta h2 {
+            font-size: clamp(60px, 10vw, 150px);
+            line-height: 0.82;
+            letter-spacing: -7px;
+            text-transform: uppercase;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 45px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 15px 25px;
+            border: 1px solid #111;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .cta-btn.dark {
+            background: #080808;
+            color: #fff;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #050505;
+            padding: 80px 5% 30px;
+            border-top: 1px solid #222;
+        }
+
+        .footer-grid {
+            max-width: 1450px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand {
+            font-size: 60px;
+            font-weight: 900;
+            line-height: 0.85;
+            letter-spacing: -4px;
+        }
+
+        .footer-column h4 {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #666;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #aaa;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .footer-column a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            max-width: 1450px;
+            margin: 60px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #555;
+            font-size: 11px;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* =========================================================
+           SCROLL ANIMATION
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 0.9s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media(max-width: 950px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .navbar.menu-open .nav-links {
+                display: flex;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #080808;
+                padding: 30px 5%;
+                flex-direction: column;
+                align-items: flex-start;
+                border-bottom: 1px solid #222;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .service-card.large {
+                grid-column: span 2;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process {
+                border-bottom: 1px solid #292929;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .section {
+                padding: 80px 5%;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card.large {
+                grid-column: span 1;
+            }
+
+            .service-card {
+                min-height: 400px;
+            }
+
+            .category-header {
+                display: block;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process {
+                border-right: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-brand {
+                font-size: 45px;
+            }
+
+            .copyright {
+                display: block;
+            }
+
+            .copyright span {
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            .cta h2 {
+                letter-spacing: -4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        AWESOME MEDIA FILMS
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="about.html">About</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="portfolio.html">Portfolio</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="get-quote.html" class="nav-btn">
+            Start Project
+        </a>
+
+    </div>
+
+    <button class="menu-btn">
+        ☰
+    </button>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2000&q=85"
+            alt="Film production camera"
+        >
+
+    </div>
+
+    <div class="hero-content reveal">
+
+        <div class="eyebrow">
+            AWESOME MEDIA FILMS / SERVICES
+        </div>
+
+        <h1>
+            WHAT<br>
+            WE<br>
+            CREATE.
+        </h1>
+
+        <p class="hero-text">
+            From cinematic films and commercial videos to photography,
+            editing, graphic design and branding — we build visual
+            experiences designed to be remembered.
+        </p>
+
+        <div class="hero-number">
+            CALL / 98211 86616
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="intro-grid reveal">
+
+            <div>
+
+                <div class="section-label">
+                    01 / CREATIVE STUDIO
+                </div>
+
+                <h2 class="section-title">
+                    ONE<br>
+                    STUDIO.<br>
+                    MANY<br>
+                    WORLDS.
+                </h2>
+
+            </div>
+
+            <div>
+
+                <div class="intro-number">
+                    360°
+                </div>
+
+                <p class="section-description">
+                    Awesome Media Films brings together production,
+                    photography, editing, design, branding, motion
+                    and creative advertising under one visual direction.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     VIDEO SERVICES
+========================================================= -->
+
+<section class="section dark-section">
+
+    <div class="container">
+
+        <div class="category-header reveal">
+
+            <div>
+
+                <div class="section-label">
+                    02 / FILM & VIDEO
+                </div>
+
+                <h2 class="section-title">
+                    STORIES<br>
+                    IN MOTION.
+                </h2>
+
+            </div>
+
+            <p>
+                Cinematic production for brands, businesses,
+                creators, events and people. From the first concept
+                to the final frame.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <!-- Video Production -->
+
+            <a href="video-production.html"
+               class="service-card large reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1600&q=85"
+                    alt="Video production"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Video Production
+                    </h3>
+
+                    <p>
+                        End-to-end video production for
+                        commercials, brands, businesses and campaigns.
+                    </p>
+
+                    <span class="service-link">
+                        Explore Service →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Film Production -->
+
+            <a href="film-production.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1400&q=85"
+                    alt="Film production"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Film Production
+                    </h3>
+
+                    <p>
+                        Concept-driven film production.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Corporate Films -->
+
+            <a href="corporate-films.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85"
+                    alt="Corporate film production"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Corporate Films
+                    </h3>
+
+                    <p>
+                        Professional stories for modern businesses.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Advertisement Films -->
+
+            <a href="advertisement-films.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85"
+                    alt="Advertising production"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        04
+                    </span>
+
+                    <h3>
+                        Ad Films
+                    </h3>
+
+                    <p>
+                        Creative advertising films built for impact.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Brand Films -->
+
+            <a href="brand-films.html"
+               class="service-card large reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1600&q=85"
+                    alt="Brand film production"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        05
+                    </span>
+
+                    <h3>
+                        Brand Films
+                    </h3>
+
+                    <p>
+                        Cinematic storytelling that gives brands
+                        a clear visual identity and point of view.
+                    </p>
+
+                    <span class="service-link">
+                        Explore Service →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- YouTube -->
+
+            <a href="youtube-production.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1400&q=85"
+                    alt="YouTube production"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        06
+                    </span>
+
+                    <h3>
+                        YouTube
+                    </h3>
+
+                    <p>
+                        Production and editing for creators and brands.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Reels -->
+
+            <a href="reels-production.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1400&q=85"
+                    alt="Reels production"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        07
+                    </span>
+
+                    <h3>
+                        Reels / Shorts
+                    </h3>
+
+                    <p>
+                        Platform-native short-form content.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Documentary -->
+
+            <a href="documentary.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=85"
+                    alt="Documentary production"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        08
+                    </span>
+
+                    <h3>
+                        Documentary
+                    </h3>
+
+                    <p>
+                        Real stories told with cinematic honesty.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Motion -->
+
+            <a href="motion-graphics.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1400&q=85"
+                    alt="Motion graphics"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        09
+                    </span>
+
+                    <h3>
+                        Motion Graphics
+                    </h3>
+
+                    <p>
+                        Typography, animation and branded motion.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- VFX -->
+
+            <a href="vfx.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1400&q=85"
+                    alt="Visual effects"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        10
+                    </span>
+
+                    <h3>
+                        VFX
+                    </h3>
+
+                    <p>
+                        Visual effects, compositing and finishing.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     VIDEO EDITING
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="category-header reveal">
+
+            <div>
+
+                <div class="section-label">
+                    03 / POST PRODUCTION
+                </div>
+
+                <h2 class="section-title">
+                    FROM RAW<br>
+                    TO<br>
+                    REMARKABLE.
+                </h2>
+
+            </div>
+
+            <p>
+                Editing is where the story finds its rhythm.
+                We shape footage through cutting, colour,
+                sound, motion and finishing.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <a href="video-editing.html"
+               class="service-card large reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=85"
+                    alt="Video editing"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        11
+                    </span>
+
+                    <h3>
+                        Video Editing
+                    </h3>
+
+                    <p>
+                        Commercials, YouTube videos,
+                        corporate films, reels and social content.
+                    </p>
+
+                    <span class="service-link">
+                        Explore Service →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="photo-editing.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1400&q=85"
+                    alt="Photo editing"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        12
+                    </span>
+
+                    <h3>
+                        Photo Editing
+                    </h3>
+
+                    <p>
+                        Clean, polished and consistent imagery.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="photo-retouching.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542038382126-77ae2819338d?auto=format&fit=crop&w=1400&q=85"
+                    alt="Photo retouching"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        13
+                    </span>
+
+                    <h3>
+                        Retouching
+                    </h3>
+
+                    <p>
+                        High-end image refinement.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PHOTOGRAPHY
+========================================================= -->
+
+<section class="section dark-section">
+
+    <div class="container">
+
+        <div class="category-header reveal">
+
+            <div>
+
+                <div class="section-label">
+                    04 / PHOTOGRAPHY
+                </div>
+
+                <h2 class="section-title">
+                    FREEZE<br>
+                    THE<br>
+                    FRAME.
+                </h2>
+
+            </div>
+
+            <p>
+                Photography that gives products, people,
+                brands and moments a distinctive visual identity.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <a href="photography.html"
+               class="service-card large reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1600&q=85"
+                    alt="Professional photography"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        14
+                    </span>
+
+                    <h3>
+                        Photography
+                    </h3>
+
+                    <p>
+                        Complete photography solutions for brands,
+                        people and events.
+                    </p>
+
+                    <span class="service-link">
+                        Explore Service →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="product-photography.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1400&q=85"
+                    alt="Product photography"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        15
+                    </span>
+
+                    <h3>
+                        Product
+                    </h3>
+
+                    <p>
+                        Studio and lifestyle product imagery.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="fashion-photography.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=85"
+                    alt="Fashion photography"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        16
+                    </span>
+
+                    <h3>
+                        Fashion
+                    </h3>
+
+                    <p>
+                        Editorial and campaign photography.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="wedding-photography.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85"
+                    alt="Wedding photography"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        17
+                    </span>
+
+                    <h3>
+                        Wedding
+                    </h3>
+
+                    <p>
+                        Emotional and editorial wedding photography.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="event-photography.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1400&q=85"
+                    alt="Event photography"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        18
+                    </span>
+
+                    <h3>
+                        Events
+                    </h3>
+
+                    <p>
+                        Complete event photography coverage.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="corporate-photography.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=85"
+                    alt="Corporate photography"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        19
+                    </span>
+
+                    <h3>
+                        Corporate
+                    </h3>
+
+                    <p>
+                        People, workplaces and business storytelling.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GRAPHIC DESIGN
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="category-header reveal">
+
+            <div>
+
+                <div class="section-label">
+                    05 / DESIGN & BRANDING
+                </div>
+
+                <h2 class="section-title">
+                    MAKE IT<br>
+                    RECOGNISABLE.
+                </h2>
+
+            </div>
+
+            <p>
+                Visual systems, campaign assets and creative
+                design built to make brands easier to recognise.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <a href="graphic-design.html"
+               class="service-card large reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1600&q=85"
+                    alt="Graphic design"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        20
+                    </span>
+
+                    <h3>
+                        Graphic Design
+                    </h3>
+
+                    <p>
+                        Digital and print design for campaigns,
+                        brands and businesses.
+                    </p>
+
+                    <span class="service-link">
+                        Explore Service →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="logo-design.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85"
+                    alt="Logo design"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        21
+                    </span>
+
+                    <h3>
+                        Logo Design
+                    </h3>
+
+                    <p>
+                        Memorable marks for modern brands.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="brand-identity.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85"
+                    alt="Brand identity"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        22
+                    </span>
+
+                    <h3>
+                        Brand Identity
+                    </h3>
+
+                    <p>
+                        Complete visual identity systems.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="social-media-design.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85"
+                    alt="Social media design"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        23
+                    </span>
+
+                    <h3>
+                        Social Media
+                    </h3>
+
+                    <p>
+                        Creatives designed for the scroll.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="poster-design.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1400&q=85"
+                    alt="Poster design"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        24
+                    </span>
+
+                    <h3>
+                        Poster Design
+                    </h3>
+
+                    <p>
+                        High-impact promotional artwork.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="banner-design.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=1400&q=85"
+                    alt="Banner design"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        25
+                    </span>
+
+                    <h3>
+                        Banner Design
+                    </h3>
+
+                    <p>
+                        Digital and promotional banners.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="thumbnail-design.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=85"
+                    alt="Thumbnail design"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        26
+                    </span>
+
+                    <h3>
+                        Thumbnails
+                    </h3>
+
+                    <p>
+                        YouTube and social thumbnail design.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="packaging-design.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1400&q=85"
+                    alt="Packaging design"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        27
+                    </span>
+
+                    <h3>
+                        Packaging
+                    </h3>
+
+                    <p>
+                        Product packaging and visual systems.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <a href="creative-ads.html"
+               class="service-card reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1400&q=85"
+                    alt="Creative advertising"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+
+                    <span class="service-number">
+                        28
+                    </span>
+
+                    <h3>
+                        Creative Ads
+                    </h3>
+
+                    <p>
+                        Visual concepts for advertising campaigns.
+                    </p>
+
+                    <span class="service-link">
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROCESS
+========================================================= -->
+
+<section class="section dark-section">
+
+    <div class="container">
+
+        <div class="section-label">
+            06 / HOW WE WORK
+        </div>
+
+        <h2 class="section-title">
+            FROM<br>
+            IDEA<br>
+            TO<br>
+            FINAL.
+        </h2>
+
+
+        <div class="process-grid">
+
+            <div class="process reveal">
+
+                <span class="process-number">
+                    01
+                </span>
+
+                <h3>
+                    Discover
+                </h3>
+
+                <p>
+                    We understand your brand, audience,
+                    objectives and creative direction.
+                </p>
+
+            </div>
+
+
+            <div class="process reveal">
+
+                <span class="process-number">
+                    02
+                </span>
+
+                <h3>
+                    Concept
+                </h3>
+
+                <p>
+                    Ideas, references, storyboards,
+                    scripts and visual direction.
+                </p>
+
+            </div>
+
+
+            <div class="process reveal">
+
+                <span class="process-number">
+                    03
+                </span>
+
+                <h3>
+                    Produce
+                </h3>
+
+                <p>
+                    Filming, photography, design,
+                    animation and creative execution.
+                </p>
+
+            </div>
+
+
+            <div class="process reveal">
+
+                <span class="process-number">
+                    04
+                </span>
+
+                <h3>
+                    Edit
+                </h3>
+
+                <p>
+                    Editing, colour, sound, motion,
+                    retouching and finishing.
+                </p>
+
+            </div>
+
+
+            <div class="process reveal">
+
+                <span class="process-number">
+                    05
+                </span>
+
+                <h3>
+                    Deliver
+                </h3>
+
+                <p>
+                    Final assets prepared for web,
+                    social, advertising and other platforms.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="cta">
+
+    <h2>
+        LET'S MAKE<br>
+        SOMETHING<br>
+        AWESOME.
+    </h2>
+
+    <div class="cta-buttons">
+
+        <a
+            href="tel:9821186616"
+            class="cta-btn dark"
+        >
+            CALL 98211 86616
+        </a>
+
+        <a
+            href="get-quote.html"
+            class="cta-btn"
+        >
+            START A PROJECT
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+
+            <div class="footer-brand">
+                AWESOME<br>
+                MEDIA FILMS
+            </div>
+
+            <p style="color:#777;max-width:400px;margin-top:25px;">
+                Film production, photography, editing,
+                graphic design, branding and creative
+                advertising.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Services
+            </h4>
+
+            <a href="video-production.html">
+                Video Production
+            </a>
+
+            <a href="video-editing.html">
+                Video Editing
+            </a>
+
+            <a href="photography.html">
+                Photography
+            </a>
+
+            <a href="graphic-design.html">
+                Graphic Design
+            </a>
+
+            <a href="brand-identity.html">
+                Branding
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="portfolio.html">
+                Portfolio
+            </a>
+
+            <a href="clients.html">
+                Clients
+            </a>
+
+            <a href="careers.html">
+                Careers
+            </a>
+
+            <a href="blog.html">
+                Blog
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Contact
+            </h4>
+
+            <a href="tel:9821186616">
+                98211 86616
+            </a>
+
+            <a
+                href="https://wa.me/919821186616"
+                target="_blank"
+            >
+                WhatsApp
+            </a>
+
+            <a href="contact.html">
+                Email — YOUR EMAIL HERE
+            </a>
+
+            <a href="contact.html">
+                Location — YOUR LOCATION HERE
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        <span>
+            © 2026 Awesome Media Films
+        </span>
+
+        <span>
+            Film · Photo · Edit · Design · Brand
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* Navbar scroll effect */
+
+    const navbar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 50) {
+
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    });
+
+
+    /* Mobile menu */
+
+    const menuButton =
+        document.querySelector(".menu-btn");
+
+    menuButton.addEventListener("click", function () {
+
+        navbar.classList.toggle("menu-open");
+
+    });
+
+
+    /* Scroll reveal */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+    const observer =
+        new IntersectionObserver(
+
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+    revealElements.forEach(function(element) {
+
+        observer.observe(element);
+
+    });
+
+</script>
+
+</body>
+</html>
+```

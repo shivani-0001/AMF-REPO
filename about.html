@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Awesome Media Films — Creative Production Studio</title>
+<meta name="description" content="About Awesome Media Films — a creative production studio for films, photography, video editing, graphic design and branding. Learn our story, philosophy, team and approach. Call 98211 86616.">
+<meta name="theme-color" content="#08080a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   AWESOME MEDIA FILMS — CORE STYLES (embedded, standalone)
+   ========================================================= */
+
+/* ---------- DESIGN TOKENS ---------- */
+:root{
+  --black:#08080a;
+  --ink:#0e0e11;
+  --panel:#131317;
+  --panel-2:#1a1a1f;
+  --line:rgba(255,255,255,.09);
+  --line-2:rgba(255,255,255,.20);
+  --white:#ffffff;
+  --grey:#8b8b93;
+  --grey-2:#b6b6bd;
+  --rec:#ff3b30;
+  --nav-h:78px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --wrap:min(1440px, 92vw);
+}
+
+/* ---------- RESET ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;border:0;background:none;color:inherit;cursor:pointer}
+ul{list-style:none}
+::selection{background:#fff;color:#000}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:#0b0b0d}
+::-webkit-scrollbar-thumb{background:#2b2b31}
+::-webkit-scrollbar-thumb:hover{background:#3d3d45}
+
+/* ---------- LAYOUT HELPERS ---------- */
+.wrap{width:var(--wrap);margin-inline:auto}
+.section{padding:clamp(70px,9vw,150px) 0;position:relative}
+.section--tight{padding:clamp(50px,6vw,90px) 0}
+.divider{height:1px;background:var(--line);width:100%}
+
+/* ---------- TYPOGRAPHY ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--grey);margin-bottom:28px;
+}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--line-2)}
+.eyebrow--center::after{content:"";width:44px;height:1px;background:var(--line-2)}
+
+.display{
+  font-weight:900;text-transform:uppercase;
+  line-height:.92;letter-spacing:-.035em;
+  font-size:clamp(2.6rem,7.4vw,7.4rem);
+}
+.display--xl{font-size:clamp(3rem,10vw,10rem);line-height:.86}
+.display--sm{font-size:clamp(2rem,4.6vw,4.2rem)}
+.h2{font-weight:800;text-transform:uppercase;letter-spacing:-.03em;line-height:.98;font-size:clamp(1.9rem,4.4vw,4rem)}
+.h3{font-weight:700;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(1.1rem,1.7vw,1.5rem);line-height:1.15}
+.lead{font-size:clamp(1rem,1.35vw,1.22rem);color:var(--grey-2);max-width:62ch;line-height:1.75}
+.muted{color:var(--grey)}
+.outline-text{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35)}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  padding:17px 34px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  border:1px solid var(--line-2);color:#fff;background:transparent;
+  transition:.4s var(--ease);white-space:nowrap;position:relative;overflow:hidden;
+}
+.btn:hover{background:#fff;color:#000;border-color:#fff}
+.btn--solid{background:#fff;color:#000;border-color:#fff}
+.btn--solid:hover{background:transparent;color:#fff;border-color:#fff}
+.btn--sm{padding:12px 22px;font-size:11px}
+.btn--block{width:100%}
+.btn__arrow{transition:transform .4s var(--ease)}
+.btn:hover .btn__arrow{transform:translateX(5px)}
+
+/* ---------- NAVIGATION ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--nav-h);
+  display:flex;align-items:center;
+  transition:height .45s var(--ease), background .45s var(--ease), border-color .45s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  height:64px;
+  background:rgba(8,8,10,.88);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom-color:var(--line);
+}
+.nav-inner{
+  width:var(--wrap);margin-inline:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:30px;
+}
+.brand{
+  font-weight:900;font-size:15px;letter-spacing:-.02em;line-height:1;text-transform:uppercase;
+  display:flex;flex-direction:column;gap:3px;
+}
+.brand span{font-size:8.5px;font-weight:500;letter-spacing:.42em;color:var(--grey)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{
+  font-size:11.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--grey-2);padding:10px 15px;position:relative;transition:color .3s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:15px;right:15px;bottom:4px;height:1px;background:#fff;
+  transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-links a.active{color:#fff}
+.nav-links a.active::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-phone{
+  font-size:12px;font-weight:700;letter-spacing:.1em;color:#fff;
+  display:flex;align-items:center;gap:9px;transition:opacity .3s;
+}
+.nav-phone:hover{opacity:.65}
+.nav-phone .dot{width:6px;height:6px;border-radius:50%;background:var(--rec);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* dropdown */
+.has-drop{position:relative}
+.drop{
+  position:absolute;top:calc(100% + 8px);left:0;min-width:250px;
+  background:rgba(14,14,17,.97);border:1px solid var(--line);
+  padding:12px 0;opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:.35s var(--ease);backdrop-filter:blur(14px);
+}
+.has-drop:hover .drop{opacity:1;visibility:visible;transform:translateY(0)}
+.drop a{display:block;padding:9px 22px;font-size:11px;letter-spacing:.12em;color:var(--grey-2)}
+.drop a:hover{color:#fff;background:rgba(255,255,255,.04)}
+
+/* burger */
+.burger{display:none;width:44px;height:44px;position:relative}
+.burger span{
+  position:absolute;left:11px;right:11px;height:1.5px;background:#fff;
+  transition:.35s var(--ease);
+}
+.burger span:nth-child(1){top:17px}
+.burger span:nth-child(2){top:26px}
+.burger.open span:nth-child(1){top:21.5px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){top:21.5px;transform:rotate(-45deg)}
+
+/* mobile drawer */
+.drawer{
+  position:fixed;inset:0;background:#0a0a0c;z-index:999;
+  padding:110px 7vw 50px;overflow-y:auto;
+  transform:translateY(-100%);transition:transform .6s var(--ease);
+}
+.drawer.open{transform:translateY(0)}
+.drawer a.d-link{
+  display:block;font-size:clamp(1.6rem,7vw,2.6rem);font-weight:800;text-transform:uppercase;
+  letter-spacing:-.03em;padding:14px 0;border-bottom:1px solid var(--line);
+}
+.drawer .d-sub{padding:26px 0 0}
+.drawer .d-sub a{display:block;padding:8px 0;font-size:13px;color:var(--grey);letter-spacing:.08em}
+.drawer .d-cta{margin-top:34px;display:flex;flex-direction:column;gap:12px}
+
+/* ---------- PAGE HERO (inner pages) ---------- */
+.phero{
+  position:relative;min-height:72svh;display:flex;align-items:flex-end;
+  padding:calc(var(--nav-h) + 70px) 0 60px;overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.phero__media{position:absolute;inset:0;z-index:0}
+.phero__media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.phero__media::after{
+  content:"";position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(to top, rgba(8,8,10,.98) 0%, rgba(8,8,10,.6) 50%, rgba(8,8,10,.7) 100%),
+    radial-gradient(ellipse at 65% 20%, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 100%);
+}
+.phero .wrap{position:relative;z-index:3}
+.phero h1{
+  font-weight:900;text-transform:uppercase;letter-spacing:-.045em;line-height:.86;
+  font-size:clamp(2.8rem,10vw,9rem);
+}
+.phero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.5)}
+.phero__sub{
+  margin-top:30px;display:flex;flex-wrap:wrap;gap:22px 60px;
+  align-items:flex-end;justify-content:space-between;
+  padding-top:26px;border-top:1px solid var(--line);
+}
+.phero__sub p{max-width:52ch;color:var(--grey-2);font-size:clamp(.95rem,1.2vw,1.08rem);line-height:1.7}
+.crumb{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--grey)}
+.crumb a:hover{color:#fff}
+.crumb span{color:rgba(255,255,255,.3)}
+
+/* ---------- MARQUEE ---------- */
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;background:#0a0a0c}
+.marquee__track{display:flex;gap:60px;width:max-content;animation:scrollX 38s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__track span{
+  font-size:clamp(1rem,2vw,1.7rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;
+  color:var(--grey);white-space:nowrap;display:flex;align-items:center;gap:60px;
+}
+.marquee__track span::after{content:"◆";font-size:.5em;color:rgba(255,255,255,.25)}
+@keyframes scrollX{to{transform:translateX(-50%)}}
+
+/* ---------- SPLIT MEDIA / TEXT ---------- */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,80px);align-items:center}
+.split--rev .split__media{order:2}
+.split__media{position:relative;overflow:hidden;aspect-ratio:4/3.1}
+.split__media img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.split__media:hover img{transform:scale(1.05)}
+.split__media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent 55%)}
+.badge-year{
+  position:absolute;left:22px;bottom:22px;z-index:2;font-size:10px;letter-spacing:.3em;
+  text-transform:uppercase;color:#fff;border:1px solid var(--line-2);padding:8px 14px;backdrop-filter:blur(6px);
+}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 34px}
+.chip{
+  font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  border:1px solid var(--line);padding:10px 16px;color:var(--grey-2);transition:.35s var(--ease);
+}
+.chip:hover{border-color:#fff;color:#fff}
+
+/* ---------- SECTION HEAD ---------- */
+.shead{display:flex;flex-wrap:wrap;gap:26px 50px;align-items:flex-end;justify-content:space-between;margin-bottom:clamp(38px,4.5vw,70px)}
+.shead__l{max-width:60ch}
+.shead__r{flex:0 0 auto}
+
+/* ---------- STATS ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.stat{
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:clamp(30px,4vw,58px) clamp(20px,2.6vw,38px);
+  transition:background .5s var(--ease);position:relative;overflow:hidden;
+}
+.stat:hover{background:var(--panel)}
+.stat__num{
+  font-size:clamp(2.4rem,5.4vw,4.6rem);font-weight:900;letter-spacing:-.05em;line-height:1;
+  display:flex;align-items:baseline;gap:4px;
+}
+.stat__label{margin-top:16px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--grey)}
+.stat__idx{position:absolute;top:14px;right:16px;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.18)}
+
+/* ---------- STORY TIMELINE ---------- */
+.story{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.story__item{
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:clamp(28px,3.4vw,48px) clamp(20px,2.4vw,34px);
+  transition:background .5s var(--ease);position:relative;
+}
+.story__item:last-child{border-right:0}
+.story__item:hover{background:var(--panel)}
+.story__year{font-size:clamp(1.4rem,2.4vw,2.1rem);font-weight:900;letter-spacing:-.04em;line-height:1}
+.story__item h3{margin-top:22px;font-size:13.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.story__item p{margin-top:12px;font-size:13.5px;color:var(--grey);line-height:1.7}
+
+/* ---------- BELIEF / VALUE GRID ---------- */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.why__item{background:var(--black);padding:clamp(28px,3.4vw,48px);transition:background .5s var(--ease)}
+.why__item:hover{background:var(--panel)}
+.why__ico{width:38px;height:38px;border:1px solid var(--line-2);display:grid;place-items:center;margin-bottom:26px;font-size:13px;font-weight:800}
+.why__item h3{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.why__item p{margin-top:12px;font-size:13.5px;color:var(--grey);line-height:1.7}
+
+/* ---------- BIG PHILOSOPHY STATEMENT ---------- */
+.philosophy{background:#0a0a0c}
+.philosophy h2{
+  font-size:clamp(1.9rem,5.4vw,5.2rem);font-weight:900;text-transform:uppercase;
+  letter-spacing:-.04em;line-height:.98;max-width:22ch;
+}
+.philosophy h2 em{font-style:normal;color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.45)}
+.philosophy__cols{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  margin-top:clamp(40px,5vw,72px);border:1px solid var(--line);
+}
+.philosophy__col{background:var(--black);padding:clamp(26px,3vw,42px)}
+.philosophy__col h3{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:#fff}
+.philosophy__col p{margin-top:16px;font-size:14px;color:var(--grey);line-height:1.75}
+
+/* ---------- TEAM GRID ---------- */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tcard{position:relative;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line);display:block}
+.tcard img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease);filter:grayscale(.4)}
+.tcard::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.92) 2%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.08) 100%);
+  transition:background .5s var(--ease);
+}
+.tcard:hover img{transform:scale(1.06);filter:grayscale(0)}
+.tcard:hover::after{background:linear-gradient(to top,rgba(0,0,0,.95) 2%,rgba(0,0,0,.5) 55%,rgba(0,0,0,.25) 100%)}
+.tcard__body{position:absolute;inset:auto 0 0 0;z-index:3;padding:26px 24px}
+.tcard__role{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--grey-2);display:block;margin-bottom:10px}
+.tcard h3{font-size:clamp(1rem,1.35vw,1.25rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1.1}
+.tcard__social{
+  margin-top:14px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  opacity:0;transform:translateY(8px);transition:.5s var(--ease);
+}
+.tcard:hover .tcard__social{opacity:1;transform:translateY(0)}
+
+/* ---------- STUDIO GALLERY ---------- */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.gallery figure{position:relative;overflow:hidden;border:1px solid var(--line)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease);filter:grayscale(.3)}
+.gallery figure:hover img{transform:scale(1.06);filter:grayscale(0)}
+.gallery figcaption{
+  position:absolute;left:20px;bottom:18px;z-index:2;font-size:10.5px;letter-spacing:.28em;
+  text-transform:uppercase;color:#fff;opacity:0;transform:translateY(10px);transition:.45s var(--ease);
+}
+.gallery figure::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78),transparent 60%);opacity:0;transition:.45s}
+.gallery figure:hover::after,.gallery figure:hover figcaption{opacity:1;transform:translateY(0)}
+.gg-a{grid-column:span 7;aspect-ratio:16/10}
+.gg-b{grid-column:span 5;aspect-ratio:16/10}
+.gg-c{grid-column:span 4;aspect-ratio:1/1}
+.gg-d{grid-column:span 4;aspect-ratio:1/1}
+.gg-e{grid-column:span 4;aspect-ratio:1/1}
+
+/* ---------- APPROACH STEPS ---------- */
+.approach{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.astep{padding:44px 24px 48px;border-right:1px solid var(--line);position:relative;transition:background .5s var(--ease)}
+.astep:last-child{border-right:0}
+.astep:hover{background:var(--panel)}
+.astep__n{
+  font-size:clamp(2rem,3.4vw,3rem);font-weight:900;letter-spacing:-.05em;
+  color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.32);line-height:1;
+}
+.astep:hover .astep__n{color:#fff;-webkit-text-stroke:0}
+.astep h3{margin-top:24px;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.astep p{margin-top:12px;font-size:13px;color:var(--grey);line-height:1.65}
+
+/* ---------- CLIENTS ---------- */
+.clients{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.client{
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  aspect-ratio:16/9;display:grid;place-items:center;
+  font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.34);
+  transition:.5s var(--ease);text-align:center;padding:10px;
+}
+.client:hover{color:#fff;background:var(--panel)}
+
+/* ---------- QUOTE ---------- */
+.quote{max-width:1100px;margin-inline:auto;text-align:center}
+.quote blockquote{font-size:clamp(1.35rem,3.2vw,2.9rem);font-weight:700;line-height:1.25;letter-spacing:-.025em}
+.quote blockquote span{color:var(--grey)}
+.quote__who{margin-top:44px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--grey)}
+.quote__who b{color:#fff;font-weight:700}
+
+/* ---------- CTA LIGHT ---------- */
+.cta-light{background:#f4f4f2;color:#08080a;padding:clamp(80px,11vw,170px) 0;position:relative;overflow:hidden}
+.cta-light h2{
+  font-size:clamp(2.6rem,10vw,9.5rem);font-weight:900;text-transform:uppercase;
+  letter-spacing:-.05em;line-height:.85;color:#08080a;
+}
+.cta-light h2 em{font-style:normal;color:transparent;-webkit-text-stroke:1.4px rgba(8,8,10,.35)}
+.cta-light p{color:#4a4a50;max-width:52ch;margin-top:28px;font-size:clamp(1rem,1.3vw,1.15rem)}
+.cta-light__actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:44px}
+.cta-light .btn{border-color:rgba(8,8,10,.25);color:#08080a}
+.cta-light .btn:hover{background:#08080a;color:#fff;border-color:#08080a}
+.cta-light .btn--solid{background:#08080a;color:#fff;border-color:#08080a}
+.cta-light .btn--solid:hover{background:transparent;color:#08080a}
+.cta-light__phone{margin-top:44px;display:flex;flex-wrap:wrap;gap:14px 44px;align-items:center;border-top:1px solid rgba(8,8,10,.14);padding-top:30px}
+.cta-light__phone a{font-size:clamp(1.2rem,2.4vw,2rem);font-weight:900;letter-spacing:-.02em}
+
+/* ---------- FOOTER ---------- */
+.footer{background:#060607;border-top:1px solid var(--line);padding:clamp(60px,7vw,110px) 0 0}
+.footer__top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:clamp(30px,4vw,60px);padding-bottom:60px}
+.footer__brand{font-size:clamp(1.6rem,3.4vw,2.6rem);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.92}
+.footer__brand span{display:block;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35)}
+.footer__tag{margin-top:22px;color:var(--grey);font-size:13.5px;max-width:38ch;line-height:1.75}
+.footer__phone{margin-top:26px;display:block;font-size:clamp(1.15rem,1.9vw,1.6rem);font-weight:800;letter-spacing:-.01em}
+.footer__phone:hover{opacity:.65}
+.footer h4{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--grey);margin-bottom:24px;font-weight:600}
+.footer li{margin-bottom:11px}
+.footer li a{font-size:13.5px;color:var(--grey-2);transition:.3s}
+.footer li a:hover{color:#fff;padding-left:5px}
+.footer__bottom{
+  border-top:1px solid var(--line);padding:26px 0;display:flex;flex-wrap:wrap;gap:14px 30px;
+  align-items:center;justify-content:space-between;font-size:11.5px;color:var(--grey);letter-spacing:.08em;
+}
+.footer__bottom a:hover{color:#fff}
+
+/* ---------- REVEAL ANIMATIONS ---------- */
+.reveal{opacity:0;transform:translateY(38px);transition:opacity .95s var(--ease),transform .95s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.09s}
+.reveal-d2{transition-delay:.18s}
+.reveal-d3{transition-delay:.27s}
+.reveal-d4{transition-delay:.36s}
+.reveal-img{clip-path:inset(0 0 100% 0);transition:clip-path 1.15s var(--ease)}
+.reveal-img.in{clip-path:inset(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal-img{opacity:1;transform:none;clip-path:none;transition:none}
+  .marquee__track{animation:none}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1180px){
+  .clients{grid-template-columns:repeat(3,1fr)}
+  .footer__top{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .story{grid-template-columns:repeat(2,1fr)}
+  .story__item:nth-child(2n){border-right:0}
+  .team{grid-template-columns:repeat(2,1fr)}
+  .approach{grid-template-columns:repeat(2,1fr)}
+  .astep:nth-child(2n){border-right:0}
+}
+@media (max-width:1024px){
+  .nav-links,.nav-phone{display:none}
+  .burger{display:block}
+  .split{grid-template-columns:1fr}
+  .split--rev .split__media{order:0}
+  .why{grid-template-columns:repeat(2,1fr)}
+  .philosophy__cols{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gg-a,.gg-b,.gg-c,.gg-d,.gg-e{grid-column:span 1;aspect-ratio:1/1}
+  .gallery figure:first-child{grid-column:span 2;aspect-ratio:16/10}
+}
+@media (max-width:760px){
+  :root{--nav-h:66px}
+  .stats{grid-template-columns:1fr}
+  .story{grid-template-columns:1fr}
+  .story__item{border-right:0}
+  .team{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .approach{grid-template-columns:1fr}
+  .astep{border-right:0;border-bottom:1px solid var(--line)}
+  .clients{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:1fr}
+  .gallery figure:first-child{grid-column:span 1}
+  .footer__top{grid-template-columns:1fr}
+  .btn{padding:15px 26px;font-size:11px}
+  .phero__sub{gap:22px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     SCROLL PROGRESS
+========================================================= -->
+<div id="progress" style="position:fixed;top:0;left:0;height:2px;background:#fff;width:0;z-index:2000;transition:width .1s linear"></div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+
+    <a class="brand" href="index.html">
+      AWESOME
+      <span>MEDIA FILMS</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+
+      <div class="has-drop">
+        <a href="video-production.html">Services ▾</a>
+        <div class="drop">
+          <a href="video-production.html">Video Production</a>
+          <a href="film-production.html">Film Production</a>
+          <a href="video-editing.html">Video Editing</a>
+          <a href="photography.html">Photography</a>
+          <a href="graphic-design.html">Graphic Design</a>
+          <a href="brand-identity.html">Branding</a>
+          <a href="motion-graphics.html">Motion Graphics</a>
+          <a href="vfx.html">VFX</a>
+        </div>
+      </div>
+
+      <!-- <a href="portfolio.html">Portfolio</a> -->
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:9821186616"><span class="dot"></span>98211 86616</a>
+      <a class="btn btn--sm" href="get-quote.html">Start Project</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+    </div>
+
+  </div>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer" id="drawer">
+  <a class="d-link" href="index.html">Home</a>
+  <a class="d-link" href="about.html">About</a>
+  <a class="d-link" href="video-production.html">Services</a>
+  <!-- <a class="d-link" href="portfolio.html">Portfolio</a> -->
+  <a class="d-link" href="pricing.html">Pricing</a>
+  <a class="d-link" href="contact.html">Contact</a>
+
+  <div class="d-sub">
+    <a href="video-production.html">Video Production</a>
+    <a href="video-editing.html">Video Editing</a>
+    <a href="photography.html">Photography</a>
+    <a href="graphic-design.html">Graphic Design</a>
+    <a href="wedding-films.html">Wedding Films</a>
+    <a href="corporate-films.html">Corporate Films</a>
+    <a href="motion-graphics.html">Motion Graphics</a>
+  </div>
+
+  <div class="d-cta">
+    <a class="btn btn--solid btn--block" href="tel:9821186616">Call 98211 86616</a>
+    <a class="btn btn--block" href="get-quote.html">Start a Project</a>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     PAGE HERO
+========================================================= -->
+<section class="phero">
+  <div class="phero__media">
+    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1920&q=70"
+         alt="Cinema screen in a dark theatre">
+  </div>
+
+  <div class="wrap">
+    <nav class="crumb reveal" style="margin-bottom:26px">
+      <a href="index.html">Home</a> <span>/</span> About
+    </nav>
+
+    <h1 class="reveal reveal-d1">
+      ABOUT<br><em>AWESOME MEDIA FILMS</em>
+    </h1>
+
+    <div class="phero__sub">
+      <p class="reveal reveal-d2">
+        A creative production studio built on one belief — that a good idea,
+        executed with craft, can make people feel something.
+      </p>
+      <a class="btn reveal reveal-d3" href="get-quote.html">Start a Project <span class="btn__arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     MARQUEE
+========================================================= -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>Our Story</span><span>Creative Philosophy</span><span>Our Team</span>
+    <span>Our Studio</span><span>Our Approach</span>
+    <span>Our Story</span><span>Creative Philosophy</span><span>Our Team</span>
+    <span>Our Studio</span><span>Our Approach</span>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     SECTION — OUR STORY (INTRO STATEMENT)
+========================================================= -->
+<section class="section philosophy">
+  <div class="wrap">
+    <span class="eyebrow reveal">Our Story</span>
+    <h2 class="reveal reveal-d1">
+      We started with a camera,
+      a hard drive and an
+      <em>obsession with detail.</em>
+    </h2>
+
+    <p class="lead reveal reveal-d2" style="margin-top:34px;max-width:70ch">
+      Awesome Media Films began as a small crew shooting whatever we could —
+      product films for local businesses, event coverage, brand videos. What
+      stayed constant was the standard: nothing leaves the studio until it looks
+      like it belongs on a screen bigger than the one it was made for.
+    </p>
+
+    <p class="lead reveal reveal-d3" style="margin-top:22px;max-width:70ch">
+      Today we're a full-service creative production house covering film,
+      photography, editing, motion, design and branding. Different tools,
+      different teams — but the same obsession with getting it right.
+    </p>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — WHO WE ARE (SPLIT)
+========================================================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+
+      <div class="split__media reveal-img">
+        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1400&q=70"
+             alt="Editing suite at Awesome Media Films" loading="lazy">
+        <span class="badge-year">The Studio</span>
+      </div>
+
+      <div>
+        <span class="eyebrow reveal">Who We Are</span>
+        <h2 class="h2 reveal reveal-d1">Creators,<br>not vendors.</h2>
+
+        <p class="lead reveal reveal-d2" style="margin-top:26px">
+          We're filmmakers, photographers, editors, designers and motion artists.
+          We sit on the same floor, argue about the same frames and finish each
+          other's sentences — and that's exactly why the work holds together.
+        </p>
+
+        <p class="lead reveal reveal-d3" style="margin-top:20px">
+          When you work with Awesome Media Films, you're not handing a brief to a
+          middleman. You're working with the people who actually shoot, cut,
+          grade and design the final piece.
+        </p>
+
+        <div class="chip-row reveal reveal-d4">
+          <span class="chip">Film</span>
+          <span class="chip">Photo</span>
+          <span class="chip">Editing</span>
+          <span class="chip">Design</span>
+          <span class="chip">Branding</span>
+          <span class="chip">Motion</span>
+        </div>
+
+        <a class="btn reveal reveal-d4" href="team.html">Meet The Team <span class="btn__arrow">→</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — STATS
+========================================================= -->
+<section class="section section--tight" style="background:#0a0a0c">
+  <div class="wrap">
+    <div class="stats">
+
+      <div class="stat reveal">
+        <span class="stat__idx">01</span>
+        <div class="stat__num"><span data-count="1" data-pad="2">00</span></div>
+        <div class="stat__label">Creative Direction</div>
+      </div>
+
+      <div class="stat reveal reveal-d1">
+        <span class="stat__idx">02</span>
+        <div class="stat__num"><span data-count="360">000</span>°</div>
+        <div class="stat__label">Visual Solutions</div>
+      </div>
+
+      <div class="stat reveal reveal-d2">
+        <span class="stat__idx">03</span>
+        <div class="stat__num">24/7</div>
+        <div class="stat__label">Ideas In Motion</div>
+      </div>
+
+      <div class="stat reveal reveal-d3">
+        <span class="stat__idx">04</span>
+        <div class="stat__num">∞</div>
+        <div class="stat__label">Possibilities</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — JOURNEY / TIMELINE
+========================================================= -->
+<section class="section">
+  <div class="wrap">
+
+    <div class="shead">
+      <div class="shead__l">
+        <span class="eyebrow reveal">The Journey</span>
+        <h2 class="h2 reveal reveal-d1">How we got here.</h2>
+      </div>
+      <div class="shead__r reveal reveal-d2">
+        <p class="lead" style="max-width:34ch">
+          A short timeline of the chapters that shaped the studio.
+        </p>
+      </div>
+    </div>
+
+    <div class="story">
+
+      <div class="story__item reveal">
+        <div class="story__year">01</div>
+        <h3>The Beginning</h3>
+        <p>A single camera, a laptop and a first client who took a chance on us.</p>
+      </div>
+
+      <div class="story__item reveal reveal-d1">
+        <div class="story__year">02</div>
+        <h3>Going Full-Time</h3>
+        <p>Film, photography and editing came together under one roof.</p>
+      </div>
+
+      <div class="story__item reveal reveal-d2">
+        <div class="story__year">03</div>
+        <h3>Design &amp; Branding</h3>
+        <p>We added graphic design so brands could have one consistent visual voice.</p>
+      </div>
+
+      <div class="story__item reveal reveal-d3">
+        <div class="story__year">04</div>
+        <h3>Today</h3>
+        <p>A complete creative production studio for films, photos and brands.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — CREATIVE PHILOSOPHY (FULLSCREEN FEATURE)
+========================================================= -->
+<section class="feature" style="position:relative;min-height:80svh;display:flex;align-items:center;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div style="position:absolute;inset:0">
+    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1920&q=70"
+         alt="Film set lighting" loading="lazy"
+         style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,10,.96) 0%,rgba(8,8,10,.62) 50%,rgba(8,8,10,.35) 100%)"></div>
+  </div>
+
+  <div class="wrap" style="position:relative;z-index:3">
+    <div style="max-width:760px">
+      <span class="eyebrow reveal">Creative Philosophy</span>
+      <h2 class="display reveal reveal-d1">Story first.<br>Always.</h2>
+      <p class="lead reveal reveal-d2" style="margin-top:28px">
+        Cameras, lenses and lights are just tools. What actually holds a viewer is
+        a story told with clarity and feeling. So we start there — with the idea,
+        the message and the emotion — and only then decide how to shoot it.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — WHAT WE BELIEVE
+========================================================= -->
+<section class="section">
+  <div class="wrap">
+
+    <div class="shead">
+      <div class="shead__l">
+        <span class="eyebrow reveal">What We Believe</span>
+        <h2 class="h2 reveal reveal-d1">Six things we<br>never compromise on.</h2>
+      </div>
+    </div>
+
+    <div class="why">
+
+      <div class="why__item reveal">
+        <div class="why__ico">01</div>
+        <h3>Idea Over Budget</h3>
+        <p>A strong concept shot simply will always beat a weak one shot expensively.</p>
+      </div>
+
+      <div class="why__item reveal reveal-d1">
+        <div class="why__ico">02</div>
+        <h3>Craft In The Details</h3>
+        <p>Cut points, colour, kerning, sound — the small things carry the whole piece.</p>
+      </div>
+
+      <div class="why__item reveal reveal-d2">
+        <div class="why__ico">03</div>
+        <h3>Clarity Beats Clever</h3>
+        <p>If the audience has to work to understand it, we haven't finished the job.</p>
+      </div>
+
+      <div class="why__item reveal">
+        <div class="why__ico">04</div>
+        <h3>Consistency Builds Brands</h3>
+        <p>Every frame, post and poster should feel like it came from the same place.</p>
+      </div>
+
+      <div class="why__item reveal reveal-d1">
+        <div class="why__ico">05</div>
+        <h3>Deadlines Are Real</h3>
+        <p>We plan backwards from delivery and protect the date, not the excuse.</p>
+      </div>
+
+      <div class="why__item reveal reveal-d2">
+        <div class="why__ico">06</div>
+        <h3>Honest Collaboration</h3>
+        <p>We'll tell you what we think will work — and what we think won't.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — OUR TEAM
+========================================================= -->
+<!-- <section class="section" style="background:#0a0a0c">
+  <div class="wrap">
+
+    <div class="shead">
+      <div class="shead__l">
+        <span class="eyebrow reveal">Our Team</span>
+        <h2 class="h2 reveal reveal-d1">The people<br>behind the frame.</h2>
+      </div>
+      <div class="shead__r reveal reveal-d2">
+        <a class="btn btn--sm" href="team.html">Full Team <span class="btn__arrow">→</span></a>
+      </div>
+    </div> -->
+
+    <!-- Replace names, roles and photos with your real team -->
+    <!-- <div class="team">
+
+      <a class="tcard reveal" href="team.html">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=70"
+             alt="Creative Director" loading="lazy">
+        <div class="tcard__body">
+          <span class="tcard__role">Creative Director</span>
+          <h3>Name Here</h3>
+          <div class="tcard__social">Profile →</div>
+        </div>
+      </a>
+
+      <a class="tcard reveal reveal-d1" href="team.html">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=70"
+             alt="Film Director" loading="lazy">
+        <div class="tcard__body">
+          <span class="tcard__role">Film Director</span>
+          <h3>Name Here</h3>
+          <div class="tcard__social">Profile →</div>
+        </div>
+      </a>
+
+      <a class="tcard reveal reveal-d2" href="team.html">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=70"
+             alt="Photographer" loading="lazy">
+        <div class="tcard__body">
+          <span class="tcard__role">Photographer</span>
+          <h3>Name Here</h3>
+          <div class="tcard__social">Profile →</div>
+        </div>
+      </a>
+
+      <a class="tcard reveal" href="team.html">
+        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=70"
+             alt="Video Editor" loading="lazy">
+        <div class="tcard__body">
+          <span class="tcard__role">Video Editor</span>
+          <h3>Name Here</h3>
+          <div class="tcard__social">Profile →</div>
+        </div>
+      </a>
+
+      <a class="tcard reveal reveal-d1" href="team.html">
+        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=70"
+             alt="Graphic Designer" loading="lazy">
+        <div class="tcard__body">
+          <span class="tcard__role">Graphic Designer</span>
+          <h3>Name Here</h3>
+          <div class="tcard__social">Profile →</div>
+        </div>
+      </a>
+
+      <a class="tcard reveal reveal-d2" href="team.html">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=70"
+             alt="Motion Designer" loading="lazy">
+        <div class="tcard__body">
+          <span class="tcard__role">Motion Designer</span>
+          <h3>Name Here</h3>
+          <div class="tcard__social">Profile →</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section> -->
+
+
+<!-- =========================================================
+     SECTION — OUR STUDIO
+========================================================= -->
+<section class="section">
+  <div class="wrap">
+
+    <div class="shead">
+      <div class="shead__l">
+        <span class="eyebrow reveal">Our Studio</span>
+        <h2 class="h2 reveal reveal-d1">Where it all<br>gets made.</h2>
+      </div>
+      <div class="shead__r reveal reveal-d2">
+        <a class="btn btn--sm" href="studio.html">Inside The Studio <span class="btn__arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <figure class="gg-a reveal-img">
+        <img src="https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?auto=format&fit=crop&w=1400&q=70" alt="Camera equipment" loading="lazy">
+        <figcaption>Camera Department</figcaption>
+      </figure>
+      <figure class="gg-b reveal-img">
+        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=70" alt="Editing workstation" loading="lazy">
+        <figcaption>Post Production</figcaption>
+      </figure>
+      <figure class="gg-c reveal-img">
+        <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=900&q=70" alt="Photography setup" loading="lazy">
+        <figcaption>Photo Studio</figcaption>
+      </figure>
+      <figure class="gg-d reveal-img">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=70" alt="Creative team" loading="lazy">
+        <figcaption>The Team</figcaption>
+      </figure>
+      <figure class="gg-e reveal-img">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=70" alt="Studio environment" loading="lazy">
+        <figcaption>Studio Floor</figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — OUR APPROACH
+========================================================= -->
+<section class="section" style="background:#0a0a0c">
+  <div class="wrap">
+
+    <div class="shead">
+      <div class="shead__l">
+        <span class="eyebrow reveal">Our Approach</span>
+        <h2 class="h2 reveal reveal-d1">Four steps.<br>Zero guesswork.</h2>
+      </div>
+      <div class="shead__r reveal reveal-d2">
+        <a class="btn btn--sm" href="our-process.html">Full Process <span class="btn__arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="approach">
+
+      <div class="astep reveal">
+        <div class="astep__n">01</div>
+        <h3>Listen</h3>
+        <p>We understand the goal, the audience and what success actually looks like.</p>
+      </div>
+
+      <div class="astep reveal reveal-d1">
+        <div class="astep__n">02</div>
+        <h3>Plan</h3>
+        <p>Concept, script, storyboard, schedule, crew and locations — locked before we roll.</p>
+      </div>
+
+      <div class="astep reveal reveal-d2">
+        <div class="astep__n">03</div>
+        <h3>Make</h3>
+        <p>Shoot, edit, colour, sound, design — executed with a consistent standard.</p>
+      </div>
+
+      <div class="astep reveal reveal-d3">
+        <div class="astep__n">04</div>
+        <h3>Refine</h3>
+        <p>Feedback rounds, final polish, delivery in every format you need.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — WHY CLIENTS WORK WITH US
+========================================================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="split split--rev">
+
+      <div class="split__media reveal-img">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=70"
+             alt="Production planning meeting" loading="lazy">
+        <span class="badge-year">Since Day One</span>
+      </div>
+
+      <div>
+        <span class="eyebrow reveal">Why Clients Work With Us</span>
+        <h2 class="h2 reveal reveal-d1">One studio.<br>Everything covered.</h2>
+
+        <p class="lead reveal reveal-d2" style="margin-top:26px">
+          Most brands juggle a videographer, a photographer, an editor and a
+          designer — and then spend their time keeping all four in sync.
+          With Awesome Media Films, it's one conversation, one visual language
+          and one team accountable for the result.
+        </p>
+
+        <ul class="reveal reveal-d3" style="margin-top:34px;display:grid;gap:0;border-top:1px solid var(--line)">
+          <li style="padding:18px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--grey-2)">Complete visual solutions under one roof</li>
+          <li style="padding:18px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--grey-2)">Consistent quality across film, photo and design</li>
+          <li style="padding:18px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--grey-2)">Direct access to the people making your work</li>
+          <li style="padding:18px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--grey-2)">Transparent timelines and realistic budgets</li>
+          <li style="padding:18px 0;font-size:14.5px;color:var(--grey-2)">Scalable — from a single reel to a full campaign</li>
+        </ul>
+
+        <div style="margin-top:38px" class="reveal reveal-d4">
+          <a class="btn" href="why-us.html">Read Why Us <span class="btn__arrow">→</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — CLIENTS (PLACEHOLDERS)
+========================================================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <span class="eyebrow reveal">Trusted By</span>
+    <h2 class="h2 reveal reveal-d1" style="margin-bottom:clamp(34px,4vw,60px)">Clients &amp; Collaborators</h2>
+  </div>
+
+  <!-- Replace these placeholder names with real client logos -->
+  <div class="clients">
+    <div class="client reveal">Brand One</div>
+    <div class="client reveal">Vision Lab</div>
+    <div class="client reveal">Nova</div>
+    <div class="client reveal">Framework</div>
+    <div class="client reveal">Creative Co.</div>
+    <div class="client reveal">Studio 02</div>
+    <div class="client reveal">Northline</div>
+    <div class="client reveal">Atlas Group</div>
+    <div class="client reveal">Meridian</div>
+    <div class="client reveal">Helios</div>
+    <div class="client reveal">Orbit Media</div>
+    <div class="client reveal">Kindred</div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — TESTIMONIAL
+========================================================= -->
+<section class="section" style="background:#0a0a0c">
+  <div class="wrap">
+    <div class="quote">
+
+      <span class="eyebrow eyebrow--center reveal" style="justify-content:center">In Their Words</span>
+
+      <blockquote class="reveal reveal-d1">
+        “They treated our project like it was their own. The result looked
+        <span>ten times</span> more expensive than what we paid.”
+      </blockquote>
+
+      <div class="quote__who reveal reveal-d2">
+        <b>Client Name</b> — Founder, Company Name <br>
+        <span style="opacity:.6">(Placeholder testimonial — replace with a real one)</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — CTA (LIGHT)
+========================================================= -->
+<section class="cta-light">
+  <div class="wrap">
+    <h2 class="reveal">Let's Make<br>Something<br><em>Awesome.</em></h2>
+
+    <p class="reveal reveal-d1">
+      Whether it's a brand film, a product shoot, a full campaign or just an
+      edit you need finished — tell us what you're planning.
+    </p>
+
+    <div class="cta-light__actions reveal reveal-d2">
+      <a class="btn btn--solid" href="tel:9821186616">Call 98211 86616</a>
+      <a class="btn" href="get-quote.html">Start a Project <span class="btn__arrow">→</span></a>
+    </div>
+
+    <div class="cta-light__phone reveal reveal-d3">
+      <a href="tel:9821186616">98211 86616</a>
+      <a href="https://wa.me/919821186616" target="_blank" rel="noopener"
+         style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700">WhatsApp →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="footer__top">
+
+      <div>
+        <div class="footer__brand">Awesome<span>Media Films</span></div>
+        <p class="footer__tag">
+          A creative production studio for films, photography, editing, design
+          and branding. We make visuals matter.
+        </p>
+        <a class="footer__phone" href="tel:9821186616">98211 86616</a>
+        <a href="https://wa.me/919821186616" target="_blank" rel="noopener"
+           style="display:inline-block;margin-top:10px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#8b8b93">
+           WhatsApp →
+        </a>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="film-production.html">Film Production</a></li>
+          <li><a href="video-editing.html">Video Editing</a></li>
+          <li><a href="photography.html">Photography</a></li>
+          <li><a href="graphic-design.html">Graphic Design</a></li>
+          <li><a href="brand-identity.html">Branding</a></li>
+          <li><a href="motion-graphics.html">Motion Graphics</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="studio.html">Studio</a></li>
+          <li><a href="our-process.html">Our Process</a></li>
+          <li><a href="why-us.html">Why Us</a></li>
+          <li><a href="clients.html">Clients</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Awesome Media Films. All rights reserved.</span>
+      <span><a href="tel:9821186616">98211 86616</a></span>
+      <span>Designed &amp; produced in-house.</span>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script>
+/* ---------- NAV SCROLL STATE ---------- */
+const nav = document.getElementById('nav');
+const progress = document.getElementById('progress');
+
+function onScroll(){
+  const y = window.scrollY;
+  nav.classList.toggle('scrolled', y > 40);
+
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+}
+window.addEventListener('scroll', onScroll, { passive:true });
+onScroll();
+
+/* ---------- MOBILE DRAWER ---------- */
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('drawer');
+
+burger.addEventListener('click', () => {
+  const open = drawer.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+drawer.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    drawer.classList.remove('open');
+    burger.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+/* ---------- SCROLL REVEAL ---------- */
+const revealEls = document.querySelectorAll('.reveal, .reveal-img');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+revealEls.forEach(el => io.observe(el));
+
+/* ---------- COUNTER ANIMATION ---------- */
+const counters = document.querySelectorAll('[data-count]');
+const cio = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.count, 10);
+    const pad = parseInt(el.dataset.pad || '0', 10);
+    let current = 0;
+    const step = Math.max(1, Math.ceil(target / 45));
+
+    const tick = () => {
+      current += step;
+      if (current >= target){ current = target; }
+      el.textContent = pad ? String(current).padStart(pad, '0') : current;
+      if (current < target) requestAnimationFrame(tick);
+    };
+    tick();
+    cio.unobserve(el);
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => cio.observe(c));
+
+/* ---------- VIDEO FALLBACK SAFETY ---------- */
+document.querySelectorAll('video').forEach(v => {
+  v.addEventListener('error', () => { v.style.display = 'none'; }, true);
+});
+</script>
+
+</body>
+</html>

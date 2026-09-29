@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing | Awesome Media Films — Creative Production Packages</title>
+<meta name="description" content="Transparent pricing for video production, video editing, photography, graphic design and branding by Awesome Media Films. Starter, Pro and Premium packages. Call 98211 86616.">
+<meta name="theme-color" content="#08080a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   AWESOME MEDIA FILMS — CORE STYLES (embedded, standalone)
+   ========================================================= */
+
+/* ---------- DESIGN TOKENS ---------- */
+:root{
+  --black:#08080a;
+  --ink:#0e0e11;
+  --panel:#131317;
+  --panel-2:#1a1a1f;
+  --line:rgba(255,255,255,.09);
+  --line-2:rgba(255,255,255,.20);
+  --line-3:rgba(255,255,255,.32);
+  --white:#ffffff;
+  --grey:#8b8b93;
+  --grey-2:#b6b6bd;
+  --grey-3:#d8d8dd;
+  --nav-h:78px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --wrap:min(1440px, 92vw);
+}
+
+/* ---------- RESET ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;border:0;background:none;color:inherit;cursor:pointer}
+ul{list-style:none}
+::selection{background:#fff;color:#000}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:#0b0b0d}
+::-webkit-scrollbar-thumb{background:#2b2b31}
+::-webkit-scrollbar-thumb:hover{background:#3d3d45}
+
+/* ---------- LAYOUT HELPERS ---------- */
+.wrap{width:var(--wrap);margin-inline:auto}
+.section{padding:clamp(70px,9vw,150px) 0;position:relative}
+.section--tight{padding:clamp(50px,6vw,90px) 0}
+.divider{height:1px;background:var(--line);width:100%}
+
+/* ---------- TYPOGRAPHY ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--grey);margin-bottom:28px;
+}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--line-2)}
+.eyebrow--center::after{content:"";width:44px;height:1px;background:var(--line-2)}
+
+.display{
+  font-weight:900;text-transform:uppercase;
+  line-height:.92;letter-spacing:-.035em;
+  font-size:clamp(2.6rem,7.4vw,7.4rem);
+}
+.display--xl{font-size:clamp(3rem,10vw,10rem);line-height:.86}
+.h2{font-weight:800;text-transform:uppercase;letter-spacing:-.03em;line-height:.98;font-size:clamp(1.9rem,4.4vw,4rem)}
+.h3{font-weight:700;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(1.1rem,1.7vw,1.5rem);line-height:1.15}
+.lead{font-size:clamp(1rem,1.35vw,1.22rem);color:var(--grey-2);max-width:62ch;line-height:1.75}
+.muted{color:var(--grey)}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  padding:17px 34px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  border:1px solid var(--line-2);color:#fff;background:transparent;
+  transition:.4s var(--ease);white-space:nowrap;position:relative;overflow:hidden;
+}
+.btn:hover{background:#fff;color:#000;border-color:#fff}
+.btn--solid{background:#fff;color:#000;border-color:#fff}
+.btn--solid:hover{background:transparent;color:#fff;border-color:#fff}
+.btn--sm{padding:12px 22px;font-size:11px}
+.btn--block{width:100%}
+.btn--ghost{border-color:var(--line);color:var(--grey-2)}
+.btn__arrow{transition:transform .4s var(--ease)}
+.btn:hover .btn__arrow{transform:translateX(5px)}
+
+/* ---------- NAVIGATION ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--nav-h);
+  display:flex;align-items:center;
+  transition:height .45s var(--ease), background .45s var(--ease), border-color .45s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  height:64px;
+  background:rgba(8,8,10,.88);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom-color:var(--line);
+}
+.nav-inner{
+  width:var(--wrap);margin-inline:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:30px;
+}
+.brand{
+  font-weight:900;font-size:15px;letter-spacing:-.02em;line-height:1;text-transform:uppercase;
+  display:flex;flex-direction:column;gap:3px;
+}
+.brand span{font-size:8.5px;font-weight:500;letter-spacing:.42em;color:var(--grey)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{
+  font-size:11.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--grey-2);padding:10px 15px;position:relative;transition:color .3s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:15px;right:15px;bottom:4px;height:1px;background:#fff;
+  transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-links a.active{color:#fff}
+.nav-links a.active::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-phone{
+  font-size:12px;font-weight:700;letter-spacing:.1em;color:#fff;
+  display:flex;align-items:center;gap:9px;transition:opacity .3s;
+}
+.nav-phone:hover{opacity:.65}
+.nav-phone .dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* dropdown */
+.has-drop{position:relative}
+.drop{
+  position:absolute;top:calc(100% + 8px);left:0;min-width:250px;
+  background:rgba(14,14,17,.97);border:1px solid var(--line);
+  padding:12px 0;opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:.35s var(--ease);backdrop-filter:blur(14px);
+}
+.has-drop:hover .drop{opacity:1;visibility:visible;transform:translateY(0)}
+.drop a{display:block;padding:9px 22px;font-size:11px;letter-spacing:.12em;color:var(--grey-2)}
+.drop a:hover{color:#fff;background:rgba(255,255,255,.04)}
+
+/* burger */
+.burger{display:none;width:44px;height:44px;position:relative}
+.burger span{
+  position:absolute;left:11px;right:11px;height:1.5px;background:#fff;
+  transition:.35s var(--ease);
+}
+.burger span:nth-child(1){top:17px}
+.burger span:nth-child(2){top:26px}
+.burger.open span:nth-child(1){top:21.5px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){top:21.5px;transform:rotate(-45deg)}
+
+/* mobile drawer */
+.drawer{
+  position:fixed;inset:0;background:#0a0a0c;z-index:999;
+  padding:110px 7vw 50px;overflow-y:auto;
+  transform:translateY(-100%);transition:transform .6s var(--ease);
+}
+.drawer.open{transform:translateY(0)}
+.drawer a.d-link{
+  display:block;font-size:clamp(1.6rem,7vw,2.6rem);font-weight:800;text-transform:uppercase;
+  letter-spacing:-.03em;padding:14px 0;border-bottom:1px solid var(--line);
+}
+.drawer .d-sub{padding:26px 0 0}
+.drawer .d-sub a{display:block;padding:8px 0;font-size:13px;color:var(--grey);letter-spacing:.08em}
+.drawer .d-cta{margin-top:34px;display:flex;flex-direction:column;gap:12px}
+
+/* ---------- PAGE HERO ---------- */
+.phero{
+  position:relative;min-height:78svh;display:flex;align-items:flex-end;
+  padding:calc(var(--nav-h) + 70px) 0 60px;overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.phero__media{position:absolute;inset:0;z-index:0}
+.phero__media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.phero__media::after{
+  content:"";position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(to top, rgba(8,8,10,.98) 0%, rgba(8,8,10,.65) 50%, rgba(8,8,10,.75) 100%),
+    radial-gradient(ellipse at 65% 20%, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 100%);
+}
+.phero .wrap{position:relative;z-index:3}
+.phero h1{
+  font-weight:900;text-transform:uppercase;letter-spacing:-.045em;line-height:.86;
+  font-size:clamp(2.8rem,10vw,9rem);
+}
+.phero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.5)}
+.phero__sub{
+  margin-top:30px;display:flex;flex-wrap:wrap;gap:22px 60px;
+  align-items:flex-end;justify-content:space-between;
+  padding-top:26px;border-top:1px solid var(--line);
+}
+.phero__sub p{max-width:52ch;color:var(--grey-2);font-size:clamp(.95rem,1.2vw,1.08rem);line-height:1.7}
+.crumb{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--grey)}
+.crumb a:hover{color:#fff}
+.crumb span{color:rgba(255,255,255,.3)}
+
+/* ---------- MARQUEE ---------- */
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;background:#0a0a0c}
+.marquee__track{display:flex;gap:60px;width:max-content;animation:scrollX 38s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__track span{
+  font-size:clamp(1rem,2vw,1.7rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;
+  color:var(--grey);white-space:nowrap;display:flex;align-items:center;gap:60px;
+}
+.marquee__track span::after{content:"◆";font-size:.5em;color:rgba(255,255,255,.25)}
+@keyframes scrollX{to{transform:translateX(-50%)}}
+
+/* ---------- SECTION HEAD ---------- */
+.shead{display:flex;flex-wrap:wrap;gap:26px 50px;align-items:flex-end;justify-content:space-between;margin-bottom:clamp(38px,4.5vw,70px)}
+.shead__l{max-width:60ch}
+.shead__r{flex:0 0 auto}
+
+/* ---------- PRICING NOTE BANNER ---------- */
+.note{
+  border:1px dashed var(--line-3);
+  padding:18px 24px;
+  display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;
+  font-size:12.5px;color:var(--grey-2);letter-spacing:.04em;
+  margin-bottom:clamp(40px,5vw,64px);
+}
+.note strong{color:#fff;font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.note__dot{width:6px;height:6px;background:#fff}
+
+/* ---------- PRICING GRID ---------- */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.price{
+  background:var(--black);position:relative;
+  padding:clamp(34px,4vw,54px) clamp(26px,2.8vw,44px);
+  display:flex;flex-direction:column;
+  transition:background .5s var(--ease);
+  min-height:640px;
+}
+.price:hover{background:var(--panel)}
+.price--featured{background:var(--panel-2)}
+.price--featured:hover{background:#202027}
+
+.price__tag{
+  position:absolute;top:0;left:0;right:0;
+  background:#fff;color:#000;
+  font-size:10px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;
+  text-align:center;padding:9px 0;
+}
+.price--featured{padding-top:clamp(56px,5.6vw,76px)}
+
+.price__tier{
+  font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--grey);
+  margin-bottom:26px;
+}
+.price__name{
+  font-size:clamp(1.5rem,2.6vw,2.3rem);font-weight:900;text-transform:uppercase;
+  letter-spacing:-.03em;line-height:1;
+}
+.price__desc{
+  margin-top:14px;font-size:13.5px;color:var(--grey);line-height:1.65;
+  min-height:66px;
+}
+
+.price__amount{
+  margin:32px 0 8px;display:flex;align-items:flex-start;gap:6px;
+  font-weight:900;letter-spacing:-.045em;line-height:.9;
+  font-size:clamp(2.4rem,4.6vw,3.6rem);
+}
+.price__amount .cur{font-size:.42em;font-weight:700;letter-spacing:0;margin-top:.35em;color:var(--grey-2)}
+.price__amount .xx{font-size:.85em;color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.55)}
+.price__meta{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--grey)}
+
+.price__divider{height:1px;background:var(--line);margin:32px 0}
+
+.price__list{display:flex;flex-direction:column;gap:14px;flex:1}
+.price__list li{
+  display:flex;gap:13px;font-size:13.8px;color:var(--grey-2);line-height:1.55;
+}
+.price__list li::before{
+  content:"";flex:0 0 auto;width:6px;height:6px;background:#fff;margin-top:8px;
+}
+.price__list li.off{color:rgba(255,255,255,.28)}
+.price__list li.off::before{background:rgba(255,255,255,.2)}
+
+.price__cta{margin-top:36px}
+.price__cta .btn{width:100%}
+
+.price__foot{
+  margin-top:20px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);
+  text-align:center;
+}
+
+/* ---------- COMPARISON TABLE ---------- */
+.compare{
+  border:1px solid var(--line);overflow-x:auto;
+}
+.compare table{
+  width:100%;min-width:840px;border-collapse:collapse;
+}
+.compare thead th{
+  background:var(--panel);border-bottom:1px solid var(--line);
+  padding:26px 24px;text-align:left;vertical-align:bottom;
+  font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--grey);
+  font-weight:600;
+}
+.compare thead th:first-child{width:34%}
+.compare thead th .tier{
+  display:block;font-size:clamp(1rem,1.5vw,1.25rem);font-weight:800;
+  letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin-top:8px;
+}
+.compare thead th.hl{background:#fff;color:#000}
+.compare thead th.hl .tier{color:#000}
+.compare tbody th{
+  text-align:left;padding:20px 24px;font-size:14px;font-weight:600;color:#fff;
+  border-bottom:1px solid var(--line);letter-spacing:-.005em;
+}
+.compare tbody td{
+  padding:20px 24px;border-bottom:1px solid var(--line);
+  font-size:13.8px;color:var(--grey-2);
+}
+.compare tbody tr:hover td,.compare tbody tr:hover th{background:rgba(255,255,255,.025)}
+.compare tbody td.hl{background:rgba(255,255,255,.045)}
+.compare tbody tr:last-child th,.compare tbody tr:last-child td{border-bottom:0}
+.tick{color:#fff;font-weight:800}
+.dash{color:rgba(255,255,255,.25)}
+
+/* ---------- ADD-ONS ---------- */
+.addons{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.addon{
+  background:var(--black);padding:clamp(26px,2.8vw,38px) clamp(22px,2.4vw,32px);
+  transition:background .5s var(--ease);
+}
+.addon:hover{background:var(--panel)}
+.addon__ico{
+  width:34px;height:34px;border:1px solid var(--line-2);display:grid;place-items:center;
+  font-size:11px;font-weight:800;letter-spacing:.02em;margin-bottom:24px;
+}
+.addon h3{font-size:13.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.addon p{margin-top:12px;font-size:13px;color:var(--grey);line-height:1.65}
+.addon__price{
+  margin-top:22px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-2);
+}
+
+/* ---------- INCLUDED STRIP ---------- */
+.included{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);
+}
+.inc{
+  background:var(--black);padding:clamp(24px,2.6vw,34px) clamp(20px,2.2vw,28px);
+  transition:background .5s var(--ease);
+}
+.inc:hover{background:var(--panel)}
+.inc__n{font-size:10px;letter-spacing:.28em;color:var(--grey);display:block;margin-bottom:18px}
+.inc h3{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.inc p{margin-top:10px;font-size:12.5px;color:var(--grey);line-height:1.6}
+
+/* ---------- CUSTOM CTA BAND ---------- */
+.custom{
+  border:1px solid var(--line);
+  display:grid;grid-template-columns:1.25fr .75fr;
+  align-items:center;gap:0;
+}
+.custom__l{padding:clamp(38px,5vw,72px) clamp(30px,4vw,64px)}
+.custom__l h2{
+  font-size:clamp(1.7rem,3.6vw,3.2rem);font-weight:900;text-transform:uppercase;
+  letter-spacing:-.035em;line-height:1;max-width:16ch;
+}
+.custom__l p{margin-top:20px;color:var(--grey-2);font-size:15px;max-width:50ch;line-height:1.7}
+.custom__r{
+  border-left:1px solid var(--line);
+  padding:clamp(38px,5vw,72px) clamp(30px,4vw,64px);
+  display:flex;flex-direction:column;gap:16px;
+  background:var(--panel);
+  height:100%;justify-content:center;
+}
+.custom__phone{
+  font-size:clamp(1.4rem,2.8vw,2.3rem);font-weight:900;letter-spacing:-.03em;line-height:1;
+  display:inline-block;
+}
+.custom__phone:hover{opacity:.65}
+.custom__r small{
+  font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--grey);
+  margin-bottom:6px;display:block;
+}
+
+/* ---------- FAQ ---------- */
+.faq{border-top:1px solid var(--line)}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__q{
+  width:100%;text-align:left;padding:30px 0;display:flex;align-items:center;justify-content:space-between;
+  gap:26px;font-size:clamp(1rem,1.6vw,1.32rem);font-weight:700;letter-spacing:-.015em;transition:color .3s;
+}
+.faq__q:hover{color:var(--grey-2)}
+.faq__ico{flex:0 0 auto;width:26px;height:26px;position:relative}
+.faq__ico::before,.faq__ico::after{
+  content:"";position:absolute;background:#fff;transition:.4s var(--ease);
+}
+.faq__ico::before{left:0;right:0;top:12.5px;height:1.5px}
+.faq__ico::after{top:0;bottom:0;left:12.5px;width:1.5px}
+.faq__item.open .faq__ico::after{transform:scaleY(0)}
+.faq__a{max-height:0;overflow:hidden;transition:max-height .55s var(--ease)}
+.faq__a p{padding:0 0 32px;max-width:78ch;color:var(--grey-2);font-size:15px;line-height:1.8}
+
+/* ---------- BIG STATEMENT ---------- */
+.bigstate{background:#0a0a0c}
+.bigstate h2{
+  font-size:clamp(1.9rem,5.4vw,5.2rem);font-weight:900;text-transform:uppercase;
+  letter-spacing:-.04em;line-height:.98;max-width:22ch;
+}
+.bigstate h2 em{font-style:normal;color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.45)}
+
+/* ---------- CTA LIGHT ---------- */
+.cta-light{background:#f4f4f2;color:#08080a;padding:clamp(80px,11vw,170px) 0;position:relative;overflow:hidden}
+.cta-light h2{
+  font-size:clamp(2.6rem,10vw,9.5rem);font-weight:900;text-transform:uppercase;
+  letter-spacing:-.05em;line-height:.85;color:#08080a;
+}
+.cta-light h2 em{font-style:normal;color:transparent;-webkit-text-stroke:1.4px rgba(8,8,10,.35)}
+.cta-light p{color:#4a4a50;max-width:52ch;margin-top:28px;font-size:clamp(1rem,1.3vw,1.15rem)}
+.cta-light__actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:44px}
+.cta-light .btn{border-color:rgba(8,8,10,.25);color:#08080a}
+.cta-light .btn:hover{background:#08080a;color:#fff;border-color:#08080a}
+.cta-light .btn--solid{background:#08080a;color:#fff;border-color:#08080a}
+.cta-light .btn--solid:hover{background:transparent;color:#08080a}
+.cta-light__phone{margin-top:44px;display:flex;flex-wrap:wrap;gap:14px 44px;align-items:center;border-top:1px solid rgba(8,8,10,.14);padding-top:30px}
+.cta-light__phone a{font-size:clamp(1.2rem,2.4vw,2rem);font-weight:900;letter-spacing:-.02em}
+
+/* ---------- FOOTER ---------- */
+.footer{background:#060607;border-top:1px solid var(--line);padding:clamp(60px,7vw,110px) 0 0}
+.footer__top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:clamp(30px,4vw,60px);padding-bottom:60px}
+.footer__brand{font-size:clamp(1.6rem,3.4vw,2.6rem);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.92}
+.footer__brand span{display:block;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35)}
+.footer__tag{margin-top:22px;color:var(--grey);font-size:13.5px;max-width:38ch;line-height:1.75}
+.footer__phone{margin-top:26px;display:block;font-size:clamp(1.15rem,1.9vw,1.6rem);font-weight:800;letter-spacing:-.01em}
+.footer__phone:hover{opacity:.65}
+.footer h4{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--grey);margin-bottom:24px;font-weight:600}
+.footer li{margin-bottom:11px}
+.footer li a{font-size:13.5px;color:var(--grey-2);transition:.3s}
+.footer li a:hover{color:#fff;padding-left:5px}
+.footer__bottom{
+  border-top:1px solid var(--line);padding:26px 0;display:flex;flex-wrap:wrap;gap:14px 30px;
+  align-items:center;justify-content:space-between;font-size:11.5px;color:var(--grey);letter-spacing:.08em;
+}
+.footer__bottom a:hover{color:#fff}
+
+/* ---------- REVEAL ANIMATIONS ---------- */
+.reveal{opacity:0;transform:translateY(38px);transition:opacity .95s var(--ease),transform .95s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.09s}
+.reveal-d2{transition-delay:.18s}
+.reveal-d3{transition-delay:.27s}
+.reveal-d4{transition-delay:.36s}
+.reveal-img{clip-path:inset(0 0 100% 0);transition:clip-path 1.15s var(--ease)}
+.reveal-img.in{clip-path:inset(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal-img{opacity:1;transform:none;clip-path:none;transition:none}
+  .marquee__track{animation:none}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1180px){
+  .prices{grid-template-columns:1fr}
+  .price{min-height:auto}
+  .addons{grid-template-columns:repeat(2,1fr)}
+  .included{grid-template-columns:repeat(3,1fr)}
+  .footer__top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:1024px){
+  .nav-links,.nav-phone{display:none}
+  .burger{display:block}
+  .custom{grid-template-columns:1fr}
+  .custom__r{border-left:0;border-top:1px solid var(--line)}
+  .included{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  :root{--nav-h:66px}
+  .addons{grid-template-columns:1fr}
+  .included{grid-template-columns:1fr}
+  .footer__top{grid-template-columns:1fr}
+  .btn{padding:15px 26px;font-size:11px}
+  .phero__sub{gap:22px}
+  .compare thead th,.compare tbody th,.compare tbody td{padding:16px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     SCROLL PROGRESS
+========================================================= -->
+<div id="progress" style="position:fixed;top:0;left:0;height:2px;background:#fff;width:0;z-index:2000;transition:width .1s linear"></div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+
+    <a class="brand" href="index.html">
+      AWESOME
+      <span>MEDIA FILMS</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+
+      <div class="has-drop">
+        <a href="video-production.html">Services ▾</a>
+        <div class="drop">
+          <a href="video-production.html">Video Production</a>
+          <a href="film-production.html">Film Production</a>
+          <a href="video-editing.html">Video Editing</a>
+          <a href="photography.html">Photography</a>
+          <a href="graphic-design.html">Graphic Design</a>
+          <a href="brand-identity.html">Branding</a>
+          <a href="motion-graphics.html">Motion Graphics</a>
+          <a href="vfx.html">VFX</a>
+        </div>
+      </div>
+
+      <!-- <a href="portfolio.html">Portfolio</a> -->
+      <a href="pricing.html" class="active">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:9821186616"><span class="dot"></span>98211 86616</a>
+      <a class="btn btn--sm" href="get-quote.html">Start Project</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+    </div>
+
+  </div>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer" id="drawer">
+  <a class="d-link" href="index.html">Home</a>
+  <a class="d-link" href="about.html">About</a>
+  <a class="d-link" href="video-production.html">Services</a>
+  <a class="d-link" href="portfolio.html">Portfolio</a>
+  <a class="d-link" href="pricing.html">Pricing</a>
+  <a class="d-link" href="contact.html">Contact</a>
+
+  <div class="d-sub">
+    <a href="video-production.html">Video Production</a>
+    <a href="video-editing.html">Video Editing</a>
+    <a href="photography.html">Photography</a>
+    <a href="graphic-design.html">Graphic Design</a>
+    <a href="wedding-films.html">Wedding Films</a>
+    <a href="corporate-films.html">Corporate Films</a>
+    <a href="motion-graphics.html">Motion Graphics</a>
+  </div>
+
+  <div class="d-cta">
+    <a class="btn btn--solid btn--block" href="tel:9821186616">Call 98211 86616</a>
+    <a class="btn btn--block" href="get-quote.html">Start a Project</a>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     PAGE HERO
+========================================================= -->
+<section class="phero">
+  <div class="phero__media">
+    <!-- Non-human imagery: camera equipment / studio gear -->
+    <img src="https://images.unsplash.com/photo-1500634245200-e5245c7574ef?auto=format&fit=crop&w=1920&q=70"
+         alt="Professional camera lens on a dark surface">
+  </div>
+
+  <div class="wrap">
+    <nav class="crumb reveal" style="margin-bottom:26px">
+      <a href="index.html">Home</a> <span>/</span> Pricing
+    </nav>
+
+    <h1 class="reveal reveal-d1">
+      PRICING<br><em>PACKAGES</em>
+    </h1>
+
+    <div class="phero__sub">
+      <p class="reveal reveal-d2">
+        Clear starting points for every kind of project. Pick a tier,
+        or tell us what you need and we'll build a custom scope around it.
+      </p>
+      <a class="btn reveal reveal-d3" href="get-quote.html">Get a Quote <span class="btn__arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     MARQUEE
+========================================================= -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>Video Production</span><span>Video Editing</span><span>Photography</span>
+    <span>Graphic Design</span><span>Branding</span><span>Motion Graphics</span>
+    <span>Video Production</span><span>Video Editing</span><span>Photography</span>
+    <span>Graphic Design</span><span>Branding</span><span>Motion Graphics</span>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     SECTION — INTRO NOTE
+========================================================= -->
+<section class="section section--tight" style="background:#0a0a0c">
+  <div class="wrap">
+    <div class="note reveal">
+      <span class="note__dot"></span>
+      <strong>Pricing Note</strong>
+      <span>
+        The prices below are <b style="color:#fff">indicative placeholders</b> and will be updated
+        with final rates. Every project is scoped individually — share your brief and we'll send an exact quote.
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — PRICING PACKAGES
+========================================================= -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+
+    <div class="shead">
+      <div class="shead__l">
+        <span class="eyebrow reveal">Packages</span>
+        <h2 class="h2 reveal reveal-d1">Three ways<br>to work with us.</h2>
+      </div>
+      <div class="shead__r reveal reveal-d2">
+        <p class="lead" style="max-width:36ch">
+          Start small, scale up, or go all-in. All packages include a dedicated point of contact from day one.
+        </p>
+      </div>
+    </div>
+
+    <!-- PRICING GRID -->
+    <div class="prices">
+
+      <!-- ---------- STARTER ---------- -->
+      <article class="price reveal">
+        <span class="price__tier">Tier 01</span>
+        <h3 class="price__name">Starter</h3>
+        <p class="price__desc">
+          For smaller projects, single deliverables and first-time collaborations
+          that still need to look premium.
+        </p>
+
+        <div class="price__amount">
+          <span class="cur">₹</span>
+          <span class="xx">XX,XXX</span>
+        </div>
+        <div class="price__meta">Starting from / per project</div>
+
+        <div class="price__divider"></div>
+
+        <ul class="price__list">
+          <li>Single deliverable (one film or one shoot)</li>
+          <li>Basic pre-production planning</li>
+          <li>1 camera / 1 photographer setup</li>
+          <li>Professional editing &amp; colour</li>
+          <li>1 round of revisions</li>
+          <li>Delivery in 1 format</li>
+          <li class="off">Motion graphics</li>
+          <li class="off">Graphic design assets</li>
+        </ul>
+
+        <div class="price__cta">
+          <a class="btn btn--ghost" href="get-quote.html">Request Quote <span class="btn__arrow">→</span></a>
+        </div>
+        <div class="price__foot">Placeholder pricing</div>
+      </article>
+
+      <!-- ---------- PRO (FEATURED) ---------- -->
+      <article class="price price--featured reveal reveal-d1">
+        <span class="price__tag">Most Popular</span>
+        <span class="price__tier">Tier 02</span>
+        <h3 class="price__name">Pro</h3>
+        <p class="price__desc">
+          Our most requested package — for brands that need a complete
+          production with film, photo and design working together.
+        </p>
+
+        <div class="price__amount">
+          <span class="cur">₹</span>
+          <span class="xx">XX,XXX</span>
+        </div>
+        <div class="price__meta">Starting from / per project</div>
+
+        <div class="price__divider"></div>
+
+        <ul class="price__list">
+          <li>Full pre-production &amp; concept development</li>
+          <li>Multi-camera / multi-setup production</li>
+          <li>Professional lighting &amp; sound</li>
+          <li>Editing, colour grading &amp; sound design</li>
+          <li>Motion graphics &amp; titles</li>
+          <li>Photography coverage on set</li>
+          <li>3 rounds of revisions</li>
+          <li>Delivery in multiple formats</li>
+        </ul>
+
+        <div class="price__cta">
+          <a class="btn btn--solid" href="get-quote.html">Request Quote <span class="btn__arrow">→</span></a>
+        </div>
+        <div class="price__foot">Placeholder pricing</div>
+      </article>
+
+      <!-- ---------- PREMIUM ---------- -->
+      <article class="price reveal reveal-d2">
+        <span class="price__tier">Tier 03</span>
+        <h3 class="price__name">Premium</h3>
+        <p class="price__desc">
+          Full creative direction — campaign-scale production across film,
+          photography, design and branding, handled end to end.
+        </p>
+
+        <div class="price__amount">
+          <span class="cur">₹</span>
+          <span class="xx">XX,XXX</span>
+        </div>
+        <div class="price__meta">Starting from / per project</div>
+
+        <div class="price__divider"></div>
+
+        <ul class="price__list">
+          <li>Dedicated creative direction &amp; strategy</li>
+          <li>Scripting, storyboarding &amp; moodboards</li>
+          <li>Cinema-grade production &amp; crew</li>
+          <li>Advanced colour grading &amp; sound mix</li>
+          <li>Full motion graphics &amp; VFX</li>
+          <li>Complete photo &amp; design package</li>
+          <li>Branding &amp; identity assets</li>
+          <li>Unlimited revisions within scope</li>
+        </ul>
+
+        <div class="price__cta">
+          <a class="btn btn--ghost" href="get-quote.html">Request Quote <span class="btn__arrow">→</span></a>
+        </div>
+        <div class="price__foot">Placeholder pricing</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — COMPARISON TABLE
+========================================================= -->
+<section class="section" style="background:#0a0a0c">
+  <div class="wrap">
+
+    <div class="shead">
+      <div class="shead__l">
+        <span class="eyebrow reveal">Compare</span>
+        <h2 class="h2 reveal reveal-d1">What's included<br>in each tier.</h2>
+      </div>
+      <div class="shead__r reveal reveal-d2">
+        <p class="lead" style="max-width:34ch">
+          A side-by-side breakdown so you can pick the right scope for your project.
+        </p>
+      </div>
+    </div>
+
+    <div class="compare reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Starter</th>
+            <th class="hl">Pro</th>
+            <th>Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Pre-production planning</th>
+            <td>Basic</td>
+            <td class="hl">Full</td>
+            <td>Full + strategy</td>
+          </tr>
+          <tr>
+            <th>Scripting &amp; storyboards</th>
+            <td><span class="dash">—</span></td>
+            <td class="hl"><span class="tick">✓</span></td>
+            <td><span class="tick">✓</span></td>
+          </tr>
+          <tr>
+            <th>Camera / crew setup</th>
+            <td>Single</td>
+            <td class="hl">Multi</td>
+            <td>Full crew</td>
+          </tr>
+          <tr>
+            <th>Professional lighting</th>
+            <td>Basic</td>
+            <td class="hl"><span class="tick">✓</span></td>
+            <td><span class="tick">✓</span></td>
+          </tr>
+          <tr>
+            <th>Sound recording / design</th>
+            <td><span class="dash">—</span></td>
+            <td class="hl">Basic</td>
+            <td>Full mix</td>
+          </tr>
+          <tr>
+            <th>Editing &amp; colour grading</th>
+            <td><span class="tick">✓</span></td>
+            <td class="hl"><span class="tick">✓</span></td>
+            <td><span class="tick">✓</span></td>
+          </tr>
+          <tr>
+            <th>Motion graphics &amp; titles</th>
+            <td><span class="dash">—</span></td>
+            <td class="hl"><span class="tick">✓</span></td>
+            <td><span class="tick">✓</span></td>
+          </tr>
+          <tr>
+            <th>VFX</th>
+            <td><span class="dash">—</span></td>
+            <td class="hl"><span class="dash">—</span></td>
+            <td><span class="tick">✓</span></td>
+          </tr>
+          <tr>
+            <th>Photography coverage</th>
+            <td><span class="dash">—</span></td>
+            <td class="hl"><span class="tick">✓</span></td>
+            <td><span class="tick">✓</span></td>
+          </tr>
+          <tr>
+            <th>Graphic design assets</th>
+            <td><span class="dash">—</span></td>
+            <td class="hl">Select assets</td>
+            <td>Full package</td>
+          </tr>
+          <tr>
+            <th>Branding &amp; identity</th>
+            <td><span class="dash">—</span></td>
+            <td class="hl"><span class="dash">—</span></td>
+            <td><span class="tick">✓</span></td>
+          </tr>
+          <tr>
+            <th>Revisions</th>
+            <td>1 round</td>
+            <td class="hl">3 rounds</td>
+            <td>Within scope</td>
+          </tr>
+          <tr>
+            <th>Delivery formats</th>
+            <td>1 format</td>
+            <td class="hl">Multiple</td>
+            <td>All formats</td>
+          </tr>
+          <tr>
+            <th>Dedicated point of contact</th>
+            <td><span class="tick">✓</span></td>
+            <td class="hl"><span class="tick">✓</span></td>
+            <td><span class="tick">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — ADD-ONS
+========================================================= -->
+<section class="section">
+  <div class="wrap">
+
+    <div class="shead">
+      <div class="shead__l">
+        <span class="eyebrow reveal">Add-Ons</span>
+        <h2 class="h2 reveal reveal-d1">Bolt on<br>what you need.</h2>
+      </div>
+      <div class="shead__r reveal reveal-d2">
+        <p class="lead" style="max-width:34ch">
+          Already have a package in mind? Add any of these services to extend the scope.
+        </p>
+      </div>
+    </div>
+
+    <div class="addons">
+
+      <div class="addon reveal">
+        <div class="addon__ico">01</div>
+        <h3>Extra Shoot Day</h3>
+        <p>Additional day of filming or photography with the same crew and setup.</p>
+        <div class="addon__price">₹XX,XXX / day</div>
+      </div>
+
+      <div class="addon reveal reveal-d1">
+        <div class="addon__ico">02</div>
+        <h3>Social Cutdowns</h3>
+        <p>Vertical Reels / Shorts edits repurposed from your main production.</p>
+        <div class="addon__price">₹XX,XXX / set</div>
+      </div>
+
+      <div class="addon reveal reveal-d2">
+        <div class="addon__ico">03</div>
+        <h3>Motion Graphics</h3>
+        <p>Animated titles, lower thirds, logo stings and explainer sequences.</p>
+        <div class="addon__price">₹XX,XXX / pack</div>
+      </div>
+
+      <div class="addon reveal reveal-d3">
+        <div class="addon__ico">04</div>
+        <h3>Colour Grading</h3>
+        <p>Advanced cinematic grade applied to your existing footage.</p>
+        <div class="addon__price">₹XX,XXX / project</div>
+      </div>
+
+      <div class="addon reveal">
+        <div class="addon__ico">05</div>
+        <h3>Sound Design</h3>
+        <p>Custom sound design, mix and licensed music for your film.</p>
+        <div class="addon__price">₹XX,XXX / project</div>
+      </div>
+
+      <div class="addon reveal reveal-d1">
+        <div class="addon__ico">06</div>
+        <h3>Photo Retouching</h3>
+        <p>High-end retouching for product, fashion and corporate images.</p>
+        <div class="addon__price">₹XXX / image</div>
+      </div>
+
+      <div class="addon reveal reveal-d2">
+        <div class="addon__ico">07</div>
+        <h3>Brand Identity</h3>
+        <p>Logo suite, colour system, typography and brand guidelines.</p>
+        <div class="addon__price">₹XX,XXX / project</div>
+      </div>
+
+      <div class="addon reveal reveal-d3">
+        <div class="addon__ico">08</div>
+        <h3>Content Retainer</h3>
+        <p>Ongoing monthly video, photo and design content for your brand.</p>
+        <div class="addon__price">Custom / month</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — ALWAYS INCLUDED
+========================================================= -->
+<section class="section section--tight" style="background:#0a0a0c">
+  <div class="wrap">
+
+    <div class="shead">
+      <div class="shead__l">
+        <span class="eyebrow reveal">Always Included</span>
+        <h2 class="h2 reveal reveal-d1">Every project<br>gets this.</h2>
+      </div>
+    </div>
+
+    <div class="included">
+
+      <div class="inc reveal">
+        <span class="inc__n">01</span>
+        <h3>Clear Communication</h3>
+        <p>One point of contact, straight answers and no chasing for updates.</p>
+      </div>
+
+      <div class="inc reveal reveal-d1">
+        <span class="inc__n">02</span>
+        <h3>Creative Input</h3>
+        <p>Ideas and suggestions that make the work stronger, not just delivered.</p>
+      </div>
+
+      <div class="inc reveal reveal-d2">
+        <span class="inc__n">03</span>
+        <h3>Professional Finish</h3>
+        <p>Everything graded, mixed and polished to a broadcast standard.</p>
+      </div>
+
+      <div class="inc reveal reveal-d3">
+        <span class="inc__n">04</span>
+        <h3>On-Time Delivery</h3>
+        <p>Deadlines agreed upfront and protected through the whole project.</p>
+      </div>
+
+      <div class="inc reveal reveal-d4">
+        <span class="inc__n">05</span>
+        <h3>Source Files</h3>
+        <p>Project files available on request after final delivery.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — CUSTOM PROJECT CTA
+========================================================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="custom reveal">
+
+      <div class="custom__l">
+        <span class="eyebrow">Custom Project?</span>
+        <h2>Nothing here fits? We'll build the scope from scratch.</h2>
+        <p>
+          Every brief is different. Tell us your goals, timeline and budget range
+          and we'll come back with a tailored plan — no packages, no padding,
+          just the exact production your project needs.
+        </p>
+        <div style="margin-top:34px">
+          <a class="btn btn--solid" href="get-quote.html">Start a Custom Project <span class="btn__arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="custom__r">
+        <small>Talk To Us Directly</small>
+        <a class="custom__phone" href="tel:9821186616">98211 86616</a>
+        <a class="btn btn--sm" href="https://wa.me/919821186616" target="_blank" rel="noopener" style="width:100%">WhatsApp Us →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — BIG STATEMENT
+========================================================= -->
+<section class="section bigstate">
+  <div class="wrap">
+    <span class="eyebrow reveal">Our Take</span>
+    <h2 class="reveal reveal-d1">
+      Good work isn't
+      expensive.
+      <em>Bad work is.</em>
+    </h2>
+    <p class="lead reveal reveal-d2" style="margin-top:34px;max-width:68ch">
+      Every rupee spent on getting it right the first time is a rupee saved on
+      reshooting, re-editing and rebranding later. That's the only pricing
+      argument we actually believe in.
+    </p>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — PRICING FAQ
+========================================================= -->
+<section class="section" style="background:#0a0a0c">
+  <div class="wrap">
+
+    <div class="shead">
+      <div class="shead__l">
+        <span class="eyebrow reveal">Pricing FAQ</span>
+        <h2 class="h2 reveal reveal-d1">Common<br>questions.</h2>
+      </div>
+      <div class="shead__r reveal reveal-d2">
+        <a class="btn btn--sm" href="faq.html">All FAQs <span class="btn__arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="faq">
+
+      <div class="faq__item reveal">
+        <button class="faq__q">Are these the final prices? <span class="faq__ico"></span></button>
+        <div class="faq__a"><p>The prices shown are indicative placeholders. Every project is scoped individually — share your brief and we'll send an exact, itemised quote with no hidden costs.</p></div>
+      </div>
+
+      <div class="faq__item reveal">
+        <button class="faq__q">What affects the final cost? <span class="faq__ico"></span></button>
+        <div class="faq__a"><p>Shoot days, number of locations, crew size, equipment required, editing complexity, motion graphics, VFX and the number of deliverables. We'll walk you through each line.</p></div>
+      </div>
+
+      <div class="faq__item reveal">
+        <button class="faq__q">Do you offer payment in instalments? <span class="faq__ico"></span></button>
+        <div class="faq__a"><p>Yes. Standard structure is a booking advance, a production-stage payment and a final payment on delivery. For larger projects we can split this further.</p></div>
+      </div>
+
+      <div class="faq__item reveal">
+        <button class="faq__q">Can I mix services from different tiers? <span class="faq__ico"></span></button>
+        <div class="faq__a"><p>Absolutely. The tiers are starting points, not rigid boxes. Tell us what you need — a Premium film with a Starter photo set, for example — and we'll price it accordingly.</p></div>
+      </div>
+
+      <div class="faq__item reveal">
+        <button class="faq__q">Do you charge for revisions? <span class="faq__ico"></span></button>
+        <div class="faq__a"><p>Each package includes a set number of revision rounds. Additional rounds or major scope changes are quoted separately before any extra work begins.</p></div>
+      </div>
+
+      <div class="faq__item reveal">
+        <button class="faq__q">How do I get an exact quote? <span class="faq__ico"></span></button>
+        <div class="faq__a"><p>Call <a href="tel:9821186616" style="color:#fff;font-weight:700">98211 86616</a> or fill the enquiry form on our Get Quote page. We'll ask a few questions and come back with a clear, itemised proposal.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     SECTION — FINAL CTA (LIGHT)
+========================================================= -->
+<section class="cta-light">
+  <div class="wrap">
+    <h2 class="reveal">Let's Make<br>Something<br><em>Awesome.</em></h2>
+
+    <p class="reveal reveal-d1">
+      Send us your brief — a film, a shoot, a full campaign or just an edit
+      you need finished. We'll reply with a clear plan and a clear price.
+    </p>
+
+    <div class="cta-light__actions reveal reveal-d2">
+      <a class="btn btn--solid" href="tel:9821186616">Call 98211 86616</a>
+      <a class="btn" href="get-quote.html">Get a Quote <span class="btn__arrow">→</span></a>
+    </div>
+
+    <div class="cta-light__phone reveal reveal-d3">
+      <a href="tel:9821186616">98211 86616</a>
+      <a href="https://wa.me/919821186616" target="_blank" rel="noopener"
+         style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700">WhatsApp →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="footer__top">
+
+      <div>
+        <div class="footer__brand">Awesome<span>Media Films</span></div>
+        <p class="footer__tag">
+          A creative production studio for films, photography, editing, design
+          and branding. We make visuals matter.
+        </p>
+        <a class="footer__phone" href="tel:9821186616">98211 86616</a>
+        <a href="https://wa.me/919821186616" target="_blank" rel="noopener"
+           style="display:inline-block;margin-top:10px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#8b8b93">
+           WhatsApp →
+        </a>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="film-production.html">Film Production</a></li>
+          <li><a href="video-editing.html">Video Editing</a></li>
+          <li><a href="photography.html">Photography</a></li>
+          <li><a href="graphic-design.html">Graphic Design</a></li>
+          <li><a href="brand-identity.html">Branding</a></li>
+          <li><a href="motion-graphics.html">Motion Graphics</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="studio.html">Studio</a></li>
+          <li><a href="our-process.html">Our Process</a></li>
+          <li><a href="why-us.html">Why Us</a></li>
+          <li><a href="clients.html">Clients</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Awesome Media Films. All rights reserved.</span>
+      <span><a href="tel:9821186616">98211 86616</a></span>
+      <span>Designed &amp; produced in-house.</span>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script>
+/* ---------- NAV SCROLL STATE ---------- */
+const nav = document.getElementById('nav');
+const progress = document.getElementById('progress');
+
+function onScroll(){
+  const y = window.scrollY;
+  nav.classList.toggle('scrolled', y > 40);
+
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+}
+window.addEventListener('scroll', onScroll, { passive:true });
+onScroll();
+
+/* ---------- MOBILE DRAWER ---------- */
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('drawer');
+
+burger.addEventListener('click', () => {
+  const open = drawer.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+drawer.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    drawer.classList.remove('open');
+    burger.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+/* ---------- SCROLL REVEAL ---------- */
+const revealEls = document.querySelectorAll('.reveal, .reveal-img');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+revealEls.forEach(el => io.observe(el));
+
+/* ---------- FAQ ACCORDION ---------- */
+document.querySelectorAll('.faq__item').forEach(item => {
+  const q = item.querySelector('.faq__q');
+  const a = item.querySelector('.faq__a');
+
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    // close others
+    document.querySelectorAll('.faq__item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq__a').style.maxHeight = null;
+    });
+
+    if (!isOpen){
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
